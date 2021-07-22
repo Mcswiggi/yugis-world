@@ -9,7 +9,7 @@ import methodOverride from 'method-override'
 import passport from 'passport'
 
 import { router as indexRouter } from './routes/index.js'
-import { router as studentsRouter } from './routes/students.js'
+import { router as profilesRouter } from './routes/profiles.js'
 import { router as authRouter } from './routes/auth.js'
 
 // connect to the MongoDB with mongoose
@@ -52,7 +52,7 @@ app.use(
 
 // mount all routes with appropriate base paths
 app.use('/', indexRouter)
-app.use('/students', studentsRouter)
+app.use('/profiles', profilesRouter)
 app.use('/auth', authRouter)
 
 // catch 404 and forward to error handler
