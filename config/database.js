@@ -1,12 +1,13 @@
 import mongoose from 'mongoose'
+const db = mongoose.connection
 
 mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex: true
+  useCreateIndex: true,
+  useFindAndModify: false,
 })
 
-const db = mongoose.connection
 
 // database connection event
 db.on('connected', function() {

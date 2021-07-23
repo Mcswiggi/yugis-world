@@ -1,11 +1,16 @@
 import { Router } from 'express'
-const router = Router()
-
+import * as indexCtrl from '../controllers/index.js'
 export {
   router
 }
 
-// The root route renders our only view
-router.get('/', function(req, res) {
-  res.redirect('/students')
+const router = Router()
+
+router.get('/', isLoggedIn, function(req, res) {
+  res.redirect('/profiles')
 })
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect("/auth/google");
+}

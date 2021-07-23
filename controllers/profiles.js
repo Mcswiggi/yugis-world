@@ -6,6 +6,7 @@ export {
 }
 
 function index (req, res) {
-  
+  Profile.find({}, 
+    res.render("profiles"))
 }
 

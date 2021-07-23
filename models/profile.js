@@ -5,7 +5,6 @@ export {
   Profile
 }
 
-
 const profileSchema = new Schema({
   name: String,
  
