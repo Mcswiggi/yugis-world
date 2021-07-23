@@ -12,6 +12,7 @@ import { router as indexRouter } from './routes/index.js'
 import { router as profilesRouter } from './routes/profiles.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as messagesRouter} from './routes/messages.js'
+import { router as cardsRouter } from './routes/cards.js'
 
 // connect to the MongoDB with mongoose
 import('./config/database.js')
@@ -56,6 +57,8 @@ app.use('/', indexRouter)
 app.use('/profiles', profilesRouter)
 app.use('/auth', authRouter)
 app.use('/messages', messagesRouter)
+app.use('/cards', cardsRouter)
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
