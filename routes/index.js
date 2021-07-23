@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import * as indexCtrl from '../controllers/index.js'
+
 export {
   router
 }
@@ -7,7 +7,7 @@ export {
 const router = Router()
 
 router.get('/', isLoggedIn, function(req, res) {
-  res.redirect('/profiles')
+  res.redirect('/index')
 })
 
 function isLoggedIn(req, res, next) {
