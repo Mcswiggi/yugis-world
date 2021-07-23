@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Message</title>
-</head>
-<body>
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+
     <form action="/messages" method="POST">
-    <input type="text" name="title">
-    <input type="text" name="content">
-    <button></button>
+    <input type="text" name="title"> post title
+    <input type="text" name="content"> post comment
+    <button>Submit</button>
     </form>
-</body>
-</html>
+    
+    <%- include('../partials/footer') %>

@@ -11,13 +11,16 @@ export{
 }
 
 function newMessage (req, res) {
-    res.render('messages/new')
+    res.render('messages/new', {
+        title: 'Add Comment'
+    })
 }
 
 function index (req, res){
     Message.find({})
     .then((messages) => {
         res.render('messages/index', {
+            title: 'All Messages',
             messages
         })
     })
