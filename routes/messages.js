@@ -5,10 +5,13 @@ export{
     router
 }
 
+const router = Router()
+
 router.get('/', isLoggedIn, messageCtrl.index)
+router.get('/new', isLoggedIn, messageCtrl.new)
 router.get('/:id', isLoggedIn, messageCtrl.show)
 router.put('/:id', isLoggedIn, messageCtrl.update)
-router.post('/:id', isLoggedIn, messageCtrl.create)
+router.post('/', isLoggedIn, messageCtrl.create)
 router.post('/:id', isLoggedIn, messageCtrl.reply)
 router.delete('/', isLoggedIn, messageCtrl.delete)
 

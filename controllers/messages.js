@@ -6,7 +6,12 @@ export{
     show,
     update,
     deleteMessage as delete,
-    reply
+    reply,
+    newMessage as new
+}
+
+function newMessage (req, res) {
+    res.render('messages/new')
 }
 
 function index (req, res){
