@@ -6,8 +6,18 @@ export{
     show,
     update,
     deleteDeck as delete,
+    newDeck as new,
+    edit,
+
 }
 
+function edit (req, res) {
+    
+}
+
+function newDeck (req, res) {
+
+}
 
 function index (req, res){
     Deck.find({})

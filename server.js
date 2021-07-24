@@ -7,6 +7,7 @@ import session from 'express-session'
 import logger from 'morgan'
 import methodOverride from 'method-override'
 import passport from 'passport'
+import { passUserToView} from './middleware/middleware.js'
 
 import { router as indexRouter } from './routes/index.js'
 import { router as profilesRouter } from './routes/profiles.js'
@@ -51,6 +52,9 @@ app.use(
     path.join(path.dirname(fileURLToPath(import.meta.url)), 'public')
   )
 )
+
+//custom middleware to make sure user is logged in vs not logged in
+app.use(passUserToView)
 
 // mount all routes with appropriate base paths
 app.use('/', indexRouter)

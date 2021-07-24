@@ -7,11 +7,12 @@ export {
 
 const router = Router()
 
-// GET /students
-router.get('/', profilesCtrl.index)
+router.get('/', isLoggedIn, profilesCtrl.index)
+router.get('/:id', isLoggedIn, profilesCtrl.show)
+router.get('/id/friend', isLoggedIn, profilesCtrl.addFriend)
+router.get('/id/unfriend', isLoggedIn, profilesCtrl.removeFriend)
 
-// POST /facts
-
-
-// DELETE /facts/:id
-
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect("/auth/google");
+}

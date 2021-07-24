@@ -14,7 +14,7 @@ function search(req, res) {
     console.log(req.body.search)
     axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${req.body.search}`)
     .then(response => {
-      Card.find({ ygoId: response.data.id })
+      // Card.find({ ygoId: response.data.id })
       
         res.render('cards/new', {
         title: 'Search Results',
@@ -30,7 +30,9 @@ function search(req, res) {
 function index (req, res) {
     Card.find({})
     .then((cards) => {
-        res.render('cards/index')
+        res.render('cards/index',
+        {title: 'cards index'}
+        )
     })
     .catch((err) => {
         res.render(err)
