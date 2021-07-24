@@ -11,9 +11,9 @@ const cardSchema = new Schema({
     defense: Number,
     effect: String,
     type: String,
+    ygoId: Number,
     attribute: String,
     decks: [{ type: Schema.Types.ObjectId, ref: "Deck" }],
-    ygoprodeckId: {type:Number, unique: true}
   },{
     timestamps: true,
   });

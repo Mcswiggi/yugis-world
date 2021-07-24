@@ -14,11 +14,12 @@ function search(req, res) {
     console.log(req.body.search)
     axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${req.body.search}`)
     .then(response => {
-      res.render('cards/search', {
+      Card.find({ ygoId: response.data.id })
+      
+        res.render('cards/new', {
         title: 'Search Results',
         results: response.data.results
       })
-      console.log(results)
     })
     .catch(err => {
       console.log(err)
@@ -27,52 +28,45 @@ function search(req, res) {
   }
 
 function index (req, res) {
-    // Card.find({})
-    // .then((cards) => {
-    //     res.json(cards)
-    // })
-    // .catch((err) => {
-    //     res.json(err)
-    // })
+    Card.find({})
+    .then((cards) => {
+        res.render('cards/index')
+    })
+    .catch((err) => {
+        res.render(err)
+    })
 }
 function show (req, res) {
-    axios
+    axios                               //getting dark magician as the query
     .get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${req.params.id}`)
     .then((response) => {
       Card.findOne({ ygoprodeckId: response.data.id })
       // This is where we'll populate collectedBy
       //.populate('collectedBy')
       // This is where we'll deep-populate reviews
-      //.populate({
-        //path: 'reviews',
-        //populate: {
-          //path: 'author'
-        // }
-       })
+    //   .populate({
+    //     path: 'reviews',
+    //     populate: {
+    //       path: 'author'
+    //     }
+    //    })
     
-      .then((card)=> {
+       .then((card)=> {
         res.render("cards/show", {
-          title: "Search Results",
+          title: "Card Details",
           apiResult: response.data,
           card
         })
-        console.log(apiResult)
-        console.log(card)
       })
-    
+    })
     .catch(err => {
       console.log(err)
       res.redirect('/')
     })
-   
-    // Card.findById(req.params.id)
-    // .then(card => {
-    //     res.json(card)
-    // })
-    // .catch((err) => {
-    //     res.json(err)
-    // })
-}
+  }
+
+
+
 function create (req, res) {
     // Card.create(req.body)
     // .then((card) => {
