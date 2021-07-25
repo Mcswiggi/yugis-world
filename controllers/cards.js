@@ -13,12 +13,13 @@ export{
 function search(req, res) {
     console.log(req.body.search)
     axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${req.body.search}`)
-    .then(response => {
-      // Card.find({ ygoId: response.data.id })
-      
-        res.render('cards/new', {
-        title: 'Search Results',
-        results: response.data.results
+    .then(response =>{
+      console.log(response.data)
+       res.render('cards/new',{
+         title: 'Search Results',
+         results: response.data 
+        //response.data comes from axios
+         // results comes from the api object 
       })
     })
     .catch(err => {

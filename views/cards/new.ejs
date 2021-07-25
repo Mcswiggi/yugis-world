@@ -4,29 +4,46 @@
 <h1>Cards result page new.ejs </h1>
 
 
-<% //if (results) { %>
-
+<% if (results) { %>
+<% console.log("results.data[0].name", results.data[0].name) %> 
+<% console.log("results.data[0].card_images.image_url", results.data[0].card_images[0].image_url) %> 
     <main class="bg-light">
       <div class="container py-5 px-3">
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g5 px-sm-5 px-4">
-          <% results.forEach(card => { %>
+          <%= results.data.name %>
             <div class="col">
               <div class="card bg-dark shadow-sm mt-3">
-    
+                <% if (results.data[0].card_images[0].image_url) { %>
+                  <img
+                    class="card-img-top"
+                    src="<%= results.data[0].card_images[0].image_url %>"
+                    alt="<%= results.data[0].name %>'s image"
+                    width="100%"
+                    height="100%"
+                  />
+                <% } else {%>
+                  <img
+                    class="card-img-top"
+                    src="/images/icons/user.png"
+                    alt="A placeholder avatar"
+                    width="100%"
+                    height="170"
+                  />
+                <% } %>
                 <div class="card-body">
-                  <p class="card-title fs-4 text-light">name<%= card.data.name %></p>
-                  <p class="card-text fs-5 text-light">atk <%= card.data.atk %></p>
-                  <p class="card-text fs-5 text-light">def <%= card.data.def %></p>
+                  <p class="card-title fs-4 text-light">name: <%= results.data[0].name %></p>
+                  <p class="card-text fs-5 text-light">atk <%= results.data[0].atk %></p>
+                  <p class="card-text fs-5 text-light">def <%= results.data[0].def %></p>
+                  <p class="card-text fs-5 text-light">description: <%= results.data[0].desc %></p>
                  
                   <%# This is where our game show UI will go %> 
                   <a href="" class="btn btn-primary">Details</a>
                 </div>
               </div>
             </div>
-          <% }) %>
         </div>
       </div>
     </main>
-  <% //} %> 
+  <% } %> 
 
 <%- include('../partials/footer') %>

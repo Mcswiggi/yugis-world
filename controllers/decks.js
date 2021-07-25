@@ -1,5 +1,7 @@
 import { Deck } from '../models/deck.js'
 import { Card } from '../models/card.js'
+import { Profile } from "../models/profile.js"
+
 
 export{
     index,
@@ -45,7 +47,10 @@ function create (req, res){
 }
 
 function show (req, res){
+    // Deck.findById(req.params.id)
+    // .then((card) => {
 
+    // })
 }
 function update (req, res){
 
