@@ -5,7 +5,7 @@ export {
 	Deck
 }
 
-const cardSchema = new Schema({
+const deckSchema = new Schema({
     name: String,
     cards: [{ type: Schema.Types.ObjectId, ref: "Card" }],
     owner: {type:String}

@@ -1,4 +1,6 @@
 import { Profile } from '../models/profile.js'
+import { Deck } from "../models/deck.js"
+
 
 export {
   index,
