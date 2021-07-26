@@ -40,11 +40,21 @@
                   <p class="card-text fs-5 text-light">attribute: <%= results.data[0].attribute %></p>
                  
                   <%# This is where our game show UI will go %>  add card right from our search page
-                  <a href="/cards/<%= results.data[0].name %>" class="btn btn-primary">Details</a>
-                  <a href="/cards/<%= results.data[0].name %> " class="btn btn-primary">Add card. this is gonna be show view of card</a> <% //card.id is a reference to card from our forEach not a reference to card in database %> 
-                  <a href="/decks/<%= results.data[0].name %> " class="btn btn-primary">Add card and go back to deck show page</a> <% //card.id is a reference to card from our forEach not a reference to card in database %> 
-         
+                  <a href="/cards/<%= results.data[0].name %>" class="btn btn-primary">Details</a> <% //using results.data[0].name because my api uses name of the card to request for info on the card. not %> 
+                  <a href="/cards/<%= results.data[0].id %>" class="btn btn-primary">Details</a> <% //using results.data[0].name because my api uses name of the card to request for info on the card. not %> 
+                  <% //results.id should send me to details on the searched card? %> 
                 
+                  <form action="/cards" method="POST">
+                    <input type="hidden" name="name" value="<%=results.data[0].name%>">
+                    <input type="hidden" name="attack" value="<%=results.data[0].atk%>">
+                    <input type="hidden" name="defense" value="<%=results.data[0].def%>">
+                    <input type="hidden" name="description" value="<%=results.data[0].desc%>">
+                    <input type="hidden" name="type" value="<%=results.data[0].race%>">
+                    <input type="hidden" name="ygoId" value="<%=results.data[0].id%>">
+                    <input type="hidden" name="attribute" value="<%=results.data[0].attribute%>">
+                    <input type="hidden" name="imageUrl" value="<%=results.data[0].card_images[0].image_url%>">
+                    <button>Submit</button>
+                  </form>
 
                 </div>
               </div>

@@ -13,11 +13,11 @@ export{
 }
 
 function addToDeck(req, res) {
-  req.body.addedToDeck = req.profile.deck._id
+  req.body.addedToDeck = req.deck.cards._id
   Card.findOne({ ygoId:req.params.id }) 
   .then(card => {
     if(card) {
-      card.addedToDeck.push(req.profile.deck._id)
+      card.addedToDeck.push(req.deck.cards._id)
       card.save()
       .then(() => {
         res.redirect(`/cards/${req.params.id}`)

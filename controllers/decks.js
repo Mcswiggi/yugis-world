@@ -41,16 +41,29 @@ function create (req, res){
     .then(() => {
         res.redirect('/decks')
     })
+    // const cardToCreate = {
+    //     name: req.body.name,
+    //     attack: req.body.attack,
+    //     defense: req.body.defense,
+    //     description: req.body.description,
+    //     type: req.body.type,
+    //     ygoId: req.body.ygoId,
+    //     attribute: req.body.attribute,
+    //     imageUrl: req.body.imageUrl,
+    // }
+    // Deck.cards.push(cardToCreate)
     .catch((err) => {
         res.render(err)
     })
 }
 
 function show (req, res){
-    // Deck.findById(req.params.id)
-    // .then((card) => {
-
-    // })
+     Deck.findById(req.params.id)
+    .then((deck) => {
+    res.render('decks/show', {
+        deck
+    }) 
+    })
 }
 function update (req, res){
 

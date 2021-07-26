@@ -8,7 +8,7 @@ export {
 const deckSchema = new Schema({
     name: String,
     cards: [{ type: Schema.Types.ObjectId, ref: "Card" }],
-    owner: {type:String}
+    owner: {type: Schema.Types.ObjectId, ref: "Profile"}
   },{
     timestamps: true,
   });

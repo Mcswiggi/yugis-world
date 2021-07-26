@@ -4,8 +4,8 @@ import * as cardsCtrl from '../controllers/cards.js'
 
 router.post('/', cardsCtrl.create)
 router.get('/:id', cardsCtrl.show)
-router.post('/search', cardsCtrl.search)
 router.post('/:id/addToDeck', isLoggedIn, cardsCtrl.addToDeck)
+router.post('/search', cardsCtrl.search)
 router.delete('/:id/removeFromDeck', isLoggedIn, cardsCtrl.removeFromDeck)
 //router.get('/', cardsCtrl.index)
 //router.post('/', cardsCtrl.create)

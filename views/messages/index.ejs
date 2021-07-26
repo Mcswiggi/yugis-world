@@ -4,9 +4,12 @@
 Battle Board
 <a href="/messages/new">Add a message</a>
 
+
+
+
 <form action="/messages" method="POST">
    <input type="text" name="title"> post title
-   <input type="text" name="content"> post comment
+   <input class="form-control" rows="3" type="text" name="content"> post comment</input>
    <button>Submit</button>
    </form>
 
@@ -21,7 +24,7 @@ Battle Board
         <blockquote class="blockquote mb-0">
           <p><%= message.content %></p>
           <footer class="blockquote-footer"><%= message.author %></footer>
-        <button href="/messages/<%= message._id %>">reply to post</button>
+        <a href="/messages/<%= message._id %>"><button>reply to post</button></a>
          </blockquote>
       </div>
     </div>
