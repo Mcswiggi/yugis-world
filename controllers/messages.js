@@ -7,14 +7,9 @@ export{
     update,
     deleteMessage as delete,
     reply,
-    newMessage as new
 }
 
-function newMessage (req, res) {
-    res.render('messages/new', {
-        title: 'Add Comment'
-    })
-}
+
 
 function index (req, res){
     Message.find({})
@@ -29,14 +24,27 @@ function index (req, res){
     })
 }
 function create (req, res){
-//req.body.author = req.user.profile._id
+req.body.author = req.user.profile._id
 Message.create(req.body)
 .then(() => {
     res.redirect('/messages')
 })
 }
 function show (req, res){
-
+    Message.findById(req.params.id)
+    .populate('author')
+    .populate({
+      path: 'replies',
+      populate: {
+        path: 'author'
+      }
+    })
+    .then(message => {
+      res.render('messages/show', {
+        title: 'Message Details',
+        message
+      })
+    })
 }
 function update (req, res){
 

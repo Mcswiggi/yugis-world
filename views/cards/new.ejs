@@ -5,12 +5,13 @@
 
 
 <% if (results) { %>
-<% console.log("results.data[0].name", results.data[0].name) %> 
-<% console.log("results.data[0].card_images.image_url", results.data[0].card_images[0].image_url) %> 
+  <% //console.log("results.data[0].card_images.image_url", results.data[0].card_images[0].image_url) %> 
+  <% console.log("results.data[0].name", results.data[0].name) %> 
     <main class="bg-light">
       <div class="container py-5 px-3">
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g5 px-sm-5 px-4">
-          <%= results.data.name %>
+          <% //results.data[0].forEach(card => { %>
+
             <div class="col">
               <div class="card bg-dark shadow-sm mt-3">
                 <% if (results.data[0].card_images[0].image_url) { %>
@@ -32,15 +33,23 @@
                 <% } %>
                 <div class="card-body">
                   <p class="card-title fs-4 text-light">name: <%= results.data[0].name %></p>
+                  <p class="card-title fs-4 text-light">type: <%= results.data[0].race %></p>
                   <p class="card-text fs-5 text-light">atk <%= results.data[0].atk %></p>
                   <p class="card-text fs-5 text-light">def <%= results.data[0].def %></p>
                   <p class="card-text fs-5 text-light">description: <%= results.data[0].desc %></p>
+                  <p class="card-text fs-5 text-light">attribute: <%= results.data[0].attribute %></p>
                  
-                  <%# This is where our game show UI will go %> 
-                  <a href="" class="btn btn-primary">Details</a>
+                  <%# This is where our game show UI will go %>  add card right from our search page
+                  <a href="/cards/<%= results.data[0].name %>" class="btn btn-primary">Details</a>
+                  <a href="/cards/<%= results.data[0].name %> " class="btn btn-primary">Add card. this is gonna be show view of card</a> <% //card.id is a reference to card from our forEach not a reference to card in database %> 
+                  <a href="/decks/<%= results.data[0].name %> " class="btn btn-primary">Add card and go back to deck show page</a> <% //card.id is a reference to card from our forEach not a reference to card in database %> 
+         
+                
+
                 </div>
               </div>
             </div>
+            <% //}) %> 
         </div>
       </div>
     </main>

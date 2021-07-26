@@ -3,11 +3,18 @@
 
 Battle Board
 <a href="/messages/new">Add a message</a>
+
+<form action="/messages" method="POST">
+   <input type="text" name="title"> post title
+   <input type="text" name="content"> post comment
+   <button>Submit</button>
+   </form>
+
 <ul>
 <% messages.forEach(function(message) { %>
-   <li><h2><%= message.title %></h2></li>
-   <li><h3><%= message.content %></h3></li>
-   <%= //message.author %>
+  <a href="/messages/<%= message._id %> "><li><h2><%= message.title %></h2></li> </a>
+  <a href="/messages/<%= message._id %> "><li><h3><%= message.content %></h3></li> </a> 
+  <a href="/messages/<%= message._id %> "><li><h3><%= //message.author.name %></h3></li> </a> 
 
 <% }) %> 
 </ul>

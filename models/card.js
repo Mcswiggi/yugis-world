@@ -9,11 +9,12 @@ const cardSchema = new Schema({
     name: String,
     attack: Number,
     defense: Number,
-    effect: String,
+    description: String,
     type: String,
     ygoId: Number,
     attribute: String,
-    decks: [{ type: Schema.Types.ObjectId, ref: "Deck" }],
+    imageUrl: String,
+    addedToDeck: [{ type: Schema.Types.ObjectId, ref: "Deck" }],
   },{
     timestamps: true,
   });
