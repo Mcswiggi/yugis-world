@@ -34,3 +34,14 @@
   position: absolute;
   width: 1px; 
 }
+
+body{
+  background-image: url('https://freeaddon.com/wallpaper/yugioh/bg-01.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+a{
+  font-size: 25px;
+  color: blue;
+}

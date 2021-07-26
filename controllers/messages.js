@@ -9,8 +9,6 @@ export{
     reply,
 }
 
-
-
 function index (req, res){
     Message.find({})
     .then((messages) => {
@@ -46,20 +44,20 @@ function show (req, res){
       })
     })
 }
+function reply (req, res){
+    req.body.author = req.user.profile._id
+    Message.findById(req.params.id)
+    .then(message => {
+        message.replies.push(req.body)
+        message.save()
+        .then(() => {
+            res.redirect(`/messages/${req.params.id}`)
+        })
+    })
+}
 function update (req, res){
 
 }
 function deleteMessage (req, res){
 
-}
-function reply (req, res){
-    req.body.author = req.user.profile._id
-    Message.findById(req.params.id)
-    .then(message => {
-      message.replies.push(req.body)
-      message.save()
-      .then(() => {
-        res.redirect(`/messages/${req.params.id}`)
-      })
-    })
 }

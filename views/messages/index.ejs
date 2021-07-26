@@ -10,12 +10,24 @@ Battle Board
    <button>Submit</button>
    </form>
 
-<ul>
-<% messages.forEach(function(message) { %>
-  <a href="/messages/<%= message._id %> "><li><h2><%= message.title %></h2></li> </a>
-  <a href="/messages/<%= message._id %> "><li><h3><%= message.content %></h3></li> </a> 
-  <a href="/messages/<%= message._id %> "><li><h3><%= message.author.name %></h3></li> </a> 
 
+<% messages.forEach(function(message) { %>
+  
+   <div class="card">
+      <div class="card-header">
+         <a href="/messages/<%= message._id %>"> <%= message.title %> </a>
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p><%= message.content %></p>
+          <footer class="blockquote-footer"><%= message.author %></footer>
+        <button href="/messages/<%= message._id %>">reply to post</button>
+         </blockquote>
+      </div>
+    </div>
+
+ 
 <% }) %> 
-</ul>
+
 <%- include('../partials/footer') %>
+
