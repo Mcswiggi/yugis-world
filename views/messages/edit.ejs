@@ -1,0 +1,35 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <%# Add the action below as the update UI %> 
+  <form 
+    class="container d-flex flex-column align-items-center"
+    action="/messages/<%= message._id %>?_method=PUT"
+    method="POST"
+  >
+    <div class="mb-3 w-75">
+      <label for="name-input" class="form-label">Message Title</label>
+      <input 
+        type="text"
+        class="form-control"
+        id="name-input"
+        name="title"
+        value="<%= message.title %>"
+      >
+    <div class="mb-3 w-75">
+      <label for="name-input" class="form-label">Message Title</label>
+      <input 
+        type="text"
+        class="form-control"
+        id="name-input"
+        name="content"
+        value="<%= message.content %>"
+      >
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  
+
+<%- include('../partials/footer') %>

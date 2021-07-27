@@ -25,6 +25,21 @@ Battle Board
           <p><%= message.content %></p>
           <footer class="blockquote-footer"><%= message.author.name %></footer>
         <a href="/messages/<%= message._id %>"><button>reply to post</button></a>
+        
+        
+        <% if (user.profile._id.toString() === message.author._id.toString()) { %>
+         <a 
+                 class="btn btn-warning"
+                 role="button" 
+                 href="/messages/<%= message._id %>/edit"
+               >
+                 Edit message
+               </a>
+       <% } %> 
+     
+     
+     
+      </main>
          </blockquote>
       </div>
     </div>

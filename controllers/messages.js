@@ -7,6 +7,17 @@ export{
     update,
     deleteMessage as delete,
     reply,
+    edit
+}
+
+function edit (req, res) {
+    Message.findById(req.params.id)
+    .then(message => {
+        res.render('messages/edit', {
+            title: "Edit message",
+            message
+        })
+    })
 }
 
 function index (req, res){
@@ -57,9 +68,18 @@ function reply (req, res){
         })
     })
 }
-function update (req, res){
 
+function update (req, res){
+Message.findByIdAndUpdate(req.params.id, req.body, {new: true})
+.then(message => {
+    res.redirect(`/messages/${message._id}`)
+})
+.catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
 }
+
 function deleteMessage (req, res){
 
 }
