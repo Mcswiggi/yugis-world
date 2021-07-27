@@ -11,6 +11,7 @@ export{
 
 function index (req, res){
     Message.find({})
+    .populate('author')
     .then((messages) => {
         res.render('messages/index', {
             title: 'All Messages',
@@ -28,6 +29,7 @@ Message.create(req.body)
     res.redirect('/messages')
 })
 }
+
 function show (req, res){
     Message.findById(req.params.id)
     .populate('author')

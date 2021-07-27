@@ -23,12 +23,11 @@ Battle Board
       <div class="card-body">
         <blockquote class="blockquote mb-0">
           <p><%= message.content %></p>
-          <footer class="blockquote-footer"><%= message.author %></footer>
+          <footer class="blockquote-footer"><%= message.author.name %></footer>
         <a href="/messages/<%= message._id %>"><button>reply to post</button></a>
          </blockquote>
       </div>
     </div>
-
  
 <% }) %> 
 

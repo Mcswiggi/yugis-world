@@ -91,8 +91,8 @@ function search(req, res) {
        })
     })
   })
-      //response.data comes from axios
-       // results comes from the api object 
+      // response.data comes from axios
+      // results comes from the api object 
   .catch(err => {
     console.log(err)
     res.redirect('/')
