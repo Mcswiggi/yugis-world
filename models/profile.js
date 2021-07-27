@@ -8,7 +8,7 @@ export {
 const profileSchema = new Schema({
   name: String,
   avatar: String,
-  deck: { type: Schema.Types.ObjectId, ref: "Deck" },
+  decks: [{ type: Schema.Types.ObjectId, ref: "Deck" }],
   friends: [{ type: Schema.Types.ObjectId, ref: "Profile" }],
   messages: [{ type: Schema.Types.ObjectId, ref: "Message" }],
 

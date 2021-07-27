@@ -14,7 +14,7 @@ const cardSchema = new Schema({
     ygoId: Number,
     attribute: String,
     imageUrl: String,
-    addedToDeck: [{ type: Schema.Types.ObjectId, ref: "Deck" }],
+    addedToDeck: { type: Schema.Types.ObjectId, ref: "Deck" },
   },{
     timestamps: true,
   });

@@ -3,7 +3,7 @@ import { Deck } from '../models/deck.js'
 import axios from 'axios'
 
 export{
-   show,
+    show,
     create,
     //update,
     //deleteCard as delete,
@@ -13,22 +13,24 @@ export{
 }
 
 function addToDeck(req, res) {
-  req.body.addedToDeck = req.deck.cards._id
-  Card.findOne({ ygoId:req.params.id }) 
+  console.log('new card', req.body)
+  console.log('req.params.id', req.params.id)
+  //req.body.addedToDeck = req.deck.cards._id
+  Card.findOne({ ygoId: req.params.id }) 
   .then(card => {
     if(card) {
-      card.addedToDeck.push(req.deck.cards._id)
+      card.addedToDeck.push(req.user.profile._id) //add card to deck for the user that is logged in
       card.save()
       .then(() => {
-        res.redirect(`/cards/${req.params.id}`)
+            res.redirect(`/decks/${req.params.id}`)
       })
     } else {
       //if it doesnt exsist in the database create it!
       Card.create(req.body)
       .then(() => {
         res.redirect(`/cards/${req.params.id}`)
-    })
-  }
+      })
+    }
   })
   .catch(err => {
     console.log(err)
@@ -39,7 +41,7 @@ function addToDeck(req, res) {
 function removeFromDeck(req, res) {
    Card.findOne({ ygoId: req.params.id})
    .then(card => {
-     card.addedToDeck.remove({_id: req.profile.deck._id})
+     card.addedToDeck.remove({_id: req.user.profile._id})
      card.save()
      .then(() => {
        res.redirect(`/cards/${req.params.id}`)
@@ -51,41 +53,35 @@ function removeFromDeck(req, res) {
   })
 }
 
+
 function search(req, res) {
-    console.log(req.body.search)
-    //axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${req.body.search}`)
-    axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${req.body.search}`)
-    .then((response) => {    
-    console.log(response.data)
-         res.render('cards/new',{
-           title: 'Search Results',
-           results: response.data,
-      })
+  console.log(req.body.search)
+  //axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${req.body.search}`)
+  axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${req.body.search}`)
+  .then((response) => {    
+  console.log(response.data)
+       res.render('cards/new',{
+         title: 'Search Results',
+         results: response.data,
     })
-        //response.data comes from axios
-         // results comes from the api object 
-    .catch(err => {
-      console.log(err)
-      res.redirect('/')
-    })
-  }
+  })
+      //response.data comes from axios
+       // results comes from the api object 
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
 
   function show (req, res) {
     axios                               //getting dark magician as the query
     //.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${req.body.search}`)
     .get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${req.body.search}`)
     .then((response) => {
+      console.log('response.data.id', response.data.id)
       Card.findOne({ ygoId: response.data.id })
       // This is where we'll populate collectedBy
-      //.populate('collectedBy')
-      // This is where we'll deep-populate reviews
-      //   .populate({
-        //     path: 'reviews',
-        //     populate: {
-          //       path: 'author'
-          //     }
-          //    })
-          
+      .populate('addedToDeck')
           .then((card)=> {
             res.render("cards/show", {
               title: "Card Details",
@@ -101,8 +97,8 @@ function search(req, res) {
       }
       
       
-      function create (req, res) {
-        Card.create(req.body)
+    function create (req, res) {
+      Card.create(req.body)
       .then(() => {
         res.redirect('/decks/index')
       })
