@@ -44,7 +44,13 @@
                   <!-- <a href="/cards/<%= results.data[0].name %>" class="btn btn-primary">Details</a> -->
 
 
-                  <form action="/cards" method="POST">
+                  <form action="/cards/<%= results.data[0].id %>/addToDeck  " method="POST">
+                    <select name="addedToDeck">
+                      <% profile.decks.forEach(deck => { %>
+                      <option value="<%= deck._id %>"><%=  deck.name %></option>
+                     <% }) %>
+
+                    </select>
                     <input type="hidden" name="name" value="<%=results.data[0].name%>">
                     <input type="hidden" name="attack" value="<%=results.data[0].atk%>">
                     <input type="hidden" name="defense" value="<%=results.data[0].def%>">

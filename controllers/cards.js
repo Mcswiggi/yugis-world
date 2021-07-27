@@ -1,5 +1,6 @@
 import { Card } from '../models/card.js'
 import { Deck } from '../models/deck.js'
+import { Profile } from '../models/profile.js' 
 import axios from 'axios'
 
 export{
@@ -15,20 +16,40 @@ export{
 function addToDeck(req, res) {
   console.log('new card', req.body)
   console.log('req.params.id', req.params.id)
-  //req.body.addedToDeck = req.deck.cards._id
   Card.findOne({ ygoId: req.params.id }) 
   .then(card => {
     if(card) {
-      card.addedToDeck.push(req.user.profile._id) //add card to deck for the user that is logged in
-      card.save()
+      Deck.findById(req.body.addedToDeck)
+      .then((deck)=>{
+        console.log(deck)
+        deck.cards.push(card._id)
+        deck.save()
       .then(() => {
-            res.redirect(`/decks/${req.params.id}`)
+        card.addedToDeck.push(deck._id)
+        card.save()
+        .then(() => {
+
+          res.redirect(`/profiles`)
+        })
       })
+    })
     } else {
       //if it doesnt exsist in the database create it!
       Card.create(req.body)
+      .then((card) => {
+      Deck.findById(req.body.addedToDeck)
+      .then((deck)=>{
+        console.log(deck)
+        deck.cards.push(card._id)
+        deck.save()
       .then(() => {
-        res.redirect(`/cards/${req.params.id}`)
+        card.addedToDeck.push(deck._id)
+        card.save()
+        .then(() => {
+          res.redirect(`/profiles`)
+        })
+      })
+      })
       })
     }
   })
@@ -59,10 +80,15 @@ function search(req, res) {
   //axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${req.body.search}`)
   axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${req.body.search}`)
   .then((response) => {    
-  console.log(response.data)
+    Profile.findById(req.user.profile._id)
+    .populate('decks')
+    .then((profile) => {
+  console.log(profile.decks)
        res.render('cards/new',{
          title: 'Search Results',
          results: response.data,
+         profile
+       })
     })
   })
       //response.data comes from axios

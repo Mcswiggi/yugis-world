@@ -37,9 +37,18 @@ function index (req, res){
     })
 }
 function create (req, res){
+    //deck owner is the profile logged in
+    req.body.owner=req.user.profile._id
     Deck.create(req.body)
-    .then(() => {
-        res.redirect('/decks')
+    .then((deck) => {
+    Profile.findById(req.body.owner)
+    .then((profile) => {
+       profile.decks.push(deck._id)
+       profile.save()
+       .then(()=>{
+           res.redirect('/profiles')
+       })
+    })
     })
     // const cardToCreate = {
     //     name: req.body.name,
