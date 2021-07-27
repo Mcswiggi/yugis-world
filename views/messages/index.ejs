@@ -37,6 +37,15 @@ Battle Board
                </a>
        <% } %> 
      
+       <form 
+        class="text-center" 
+        action="/messages/<%= message._id %>/?_method=DELETE" 
+        method="POST"
+      >
+        <button class="btn btn-danger">
+          Remove Post
+        </button>
+      </form>
      
      
       </main>

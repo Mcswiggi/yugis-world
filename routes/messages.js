@@ -13,7 +13,7 @@ router.get('/:id', isLoggedIn, messageCtrl.show)
 router.post('/:id', isLoggedIn, messageCtrl.reply)
 router.get('/:id/edit', isLoggedIn, messageCtrl.edit)
 router.put('/:id', isLoggedIn, messageCtrl.update)
-router.delete('/', isLoggedIn, messageCtrl.delete)
+router.delete('/:id', isLoggedIn, messageCtrl.delete)
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();

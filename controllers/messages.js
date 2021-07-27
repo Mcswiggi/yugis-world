@@ -57,6 +57,7 @@ function show (req, res){
       })
     })
 }
+
 function reply (req, res){
     req.body.author = req.user.profile._id
     Message.findById(req.params.id)
@@ -81,5 +82,10 @@ Message.findByIdAndUpdate(req.params.id, req.body, {new: true})
 }
 
 function deleteMessage (req, res){
-
+    console.log('da')
+Message.findByIdAndDelete(req.params.id)
+.then(() =>{
+    console.log(req.params.id)
+    res.redirect('/messages')
+    })
 }
