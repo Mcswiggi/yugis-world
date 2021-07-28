@@ -54,9 +54,7 @@ function show (req, res) {
         userProfile,
         title: `${profile.name}'s profile`,
         decks
-    })
-
-    
+        })
       })
     })
   })
