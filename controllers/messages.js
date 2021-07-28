@@ -10,15 +10,42 @@ export{
     edit
 }
 
+// .populate({
+//     path: 'replies',
+//     populate: {
+//       path: 'author'
+//     }
+
+
 function edit (req, res) {
     Message.findById(req.params.id)
+    .populate({ 
+        path: 'replies',
+        populate: {
+            path: 'author'
+        }
+    })
     .then(message => {
+        console.log(message.replies[0])
         res.render('messages/edit', {
             title: "Edit message",
             message
         })
     })
+    .catch((err) => {
+        res.render(err)
+    })
 }
+
+// function edit (req, res) {
+//     Message.findById(req.params.id)
+//     .then(message => {
+//         res.render('messages/edit', {
+//             title: "Edit message",
+//             message
+//         })
+//     })
+// }
 
 function index (req, res){
     Message.find({})
