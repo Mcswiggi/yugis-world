@@ -9,8 +9,50 @@
   <body>
 
     <% deck.cards.forEach(card => { %>
-      <h2 value="<%=card._id%>"><%= card.name%></h2>
-   <% }) %> 
+      <h2><%= card.name %></h2>
+   
+      <% if (card) { %>
+        <main class="bg-light">
+          <div class="container py-5 px-3">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g5 px-sm-5 px-4">
+                <div class="col">
+                  <div class="card bg-dark shadow-sm mt-3">
+                    <% if (card.imageUrl) { %>
+                      <img
+                        class="card-img-top"
+                        src="<%= card.imageUrl %>"
+                        alt="<%= card.name %>'s image"
+                        width="250px"
+                        height="300px"
+                      />
+                    <% } else {%>
+                      <img
+                        class="card-img-top"
+                        src="/images/icons/user.png"
+                        alt="A placeholder avatar"
+                        width="250px"
+                        height="300px"
+                      />
+                    <% } %>
+                    <div class="card-body">
+                      <p class="card-title fs-4 text-light">name: <%= card.name %></p>
+                      <p class="card-title fs-4 text-light">type: <%= card.type %></p>
+                      <p class="card-text fs-5 text-light">atk <%= card.attack %></p>
+                      <p class="card-text fs-5 text-light">def <%= card.defense %></p>
+                      <p class="card-text fs-5 text-light">description: <%= card.description %></p>
+                      <p class="card-text fs-5 text-light">attribute: <%= card.attribute %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        <% } %> 
+   
+   
+   
+   
+      <% }) %> 
         <a 
                 class="btn btn-warning"
                 role="button" 
