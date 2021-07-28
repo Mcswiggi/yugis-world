@@ -20,7 +20,7 @@ function addToDeck(req, res) {
   .then(card => {
     if(card) {
       Deck.findById(req.body.addedToDeck)
-      .then((deck)=>{
+      .then((deck) => {
         console.log(deck)
         deck.cards.push(card._id)
         deck.save()
@@ -28,7 +28,6 @@ function addToDeck(req, res) {
         card.addedToDeck.push(deck._id)
         card.save()
         .then(() => {
-
           res.redirect(`/profiles`)
         })
       })
@@ -38,7 +37,7 @@ function addToDeck(req, res) {
       Card.create(req.body)
       .then((card) => {
       Deck.findById(req.body.addedToDeck)
-      .then((deck)=>{
+      .then((deck) => {
         console.log(deck)
         deck.cards.push(card._id)
         deck.save()
@@ -62,7 +61,7 @@ function addToDeck(req, res) {
 function removeFromDeck(req, res) {
    Card.findOne({ ygoId: req.params.id})
    .then(card => {
-     card.addedToDeck.remove({_id: req.user.profile._id})
+     card.addedToDeck.remove({_id: req.user.profile._id}) //also reference Deck to remove cards from deck
      card.save()
      .then(() => {
        res.redirect(`/cards/${req.params.id}`)

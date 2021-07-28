@@ -33,6 +33,7 @@ function index (req, res){
         res.render(err)
     })
 }
+
 function create (req, res){
 req.body.author = req.user.profile._id
 Message.create(req.body)
@@ -82,7 +83,6 @@ Message.findByIdAndUpdate(req.params.id, req.body, {new: true})
 }
 
 function deleteMessage (req, res){
-    console.log('da')
 Message.findByIdAndDelete(req.params.id)
 .then(() =>{
     console.log(req.params.id)

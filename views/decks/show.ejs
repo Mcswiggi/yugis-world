@@ -7,6 +7,10 @@
     <title>Document</title>
   </head>
   <body>
+
+    <% deck.cards.forEach(card => { %>
+      <h2 value="<%=card._id%>"><%= card.name%></h2>
+   <% }) %> 
         <a 
                 class="btn btn-warning"
                 role="button" 

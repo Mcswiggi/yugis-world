@@ -67,7 +67,9 @@ function create (req, res){
 }
 
 function show (req, res){
+    console.log(req.params.id) // we have the deck that we clicked on
      Deck.findById(req.params.id)
+     .populate('cards')
     .then((deck) => {
     res.render('decks/show', {
         deck
