@@ -29,12 +29,12 @@
                     <% } %>
                     <div class="card-body">
                       <p class="card-title fs-4 text-light">name: <%= card.name %></p>
+                      <p class="card-text fs-5 text-light"><%= card.attack ? "atk:" : "" %>  <%= card.attack %></p>
+                      <p class="card-text fs-5 text-light"><%= card.defense ? "def:" : "" %> <%= card.defense %></p>
+                      <p class="card-text fs-5 text-light"> <%= card.attribute ? "attribute" : "" %>  <%= card.attribute %></p>
                       <p class="card-text fs-5 text-light">card type: <%= card.type %></p>
-                      <p class="card-text fs-5 text-light">card archetype: <%= card.race %></p>
-                      <p class="card-text fs-5 text-light">atk: <%= card.attack %></p>
-                      <p class="card-text fs-5 text-light">def: <%= card.defense %></p>
+                      <p class="card-text fs-5 text-light">card archetype: <%= card.archetype %></p>
                       <p class="card-text fs-5 text-light">description: <%= card.description %></p>
-                      <p class="card-text fs-5 text-light"> attribute: <%= card.attribute %></p>
                     </div>
                   </div>
                 </div>
@@ -44,12 +44,5 @@
         <% } %> 
    
       <% }) %> 
-        <a 
-                class="btn btn-warning"
-                role="button" 
-                href="/decks/<%= deck._id %>/edit"
-              >
-                Edit Deck name
-              </a>
-        Deck Show page
+  
         <%- include('../partials/footer') %>
