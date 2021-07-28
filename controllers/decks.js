@@ -72,6 +72,7 @@ function show (req, res){
      .populate('cards')
     .then((deck) => {
     res.render('decks/show', {
+        title: 'Deck Show Page',
         deck
     }) 
     })

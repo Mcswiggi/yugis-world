@@ -41,7 +41,7 @@ function addFriend (req, res) {
 
 function show (req, res) {
   Profile.findById(req.params.id)
-  // .populate('friends')
+  .populate('friends')
   .then(profile => {
     Profile.findById(req.user.profile)
     .then(userProfile => {
