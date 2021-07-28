@@ -32,11 +32,12 @@
                 <% } %>
                 <div class="card-body">
                   <p class="card-title fs-4 text-light">name: <%= results.data[0].name %></p>
-                  <p class="card-title fs-4 text-light">type: <%= results.data[0].race %></p>
-                  <p class="card-text fs-5 text-light">atk <%= results.data[0].atk %></p>
-                  <p class="card-text fs-5 text-light">def <%= results.data[0].def %></p>
+                  <p class="card-text fs-5 text-light">card type: <%= results.data[0].type %></p>
+                  <p class="card-text fs-5 text-light">card archetype: <%= results.data[0].race %></p>
+                  <p class="card-text fs-5 text-light"> <%= results.data[0].atk ? "atk:" : ""  %>  <%= results.data[0].atk %></p>
+                  <p class="card-text fs-5 text-light"> <%= results.data[0].def ? "def:" : ""  %> <%= results.data[0].def %></p>
                   <p class="card-text fs-5 text-light">description: <%= results.data[0].desc %></p>
-                  <p class="card-text fs-5 text-light">attribute: <%= results.data[0].attribute %></p>
+                  <p class="card-text fs-5 text-light"><%= results.data[0].attribute ? "attribute:" : ""  %><%= results.data[0].attribute %></p>
                  
                   <%# This is where our game show UI will go %>  add card right from our search page
                   <% //results.id should send me to details on the searched card? %> 
@@ -52,13 +53,17 @@
 
                     </select>
                     <input type="hidden" name="name" value="<%=results.data[0].name%>">
-                    <input type="hidden" name="attack" value="<%=results.data[0].atk%>">
+                    <input type="hidden" name="attack" value="<%=results.data[0].atk %>">
                     <input type="hidden" name="defense" value="<%=results.data[0].def%>">
                     <input type="hidden" name="description" value="<%=results.data[0].desc%>">
                     <input type="hidden" name="type" value="<%=results.data[0].race%>">
                     <input type="hidden" name="ygoId" value="<%=results.data[0].id%>">
                     <input type="hidden" name="attribute" value="<%=results.data[0].attribute%>">
+                    <input type="hidden" name="archetype" value="<%= results.data[0].race %>">
                     <input type="hidden" name="imageUrl" value="<%=results.data[0].card_images[0].image_url%>">
+                    
+                    
+                    
                     <button>Submit</button>
                   </form>
                 </div>

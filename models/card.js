@@ -9,6 +9,7 @@ const cardSchema = new Schema({
     name: String,
     attack: Number,
     defense: Number,
+    archetype: String,
     description: String,
     type: String,
     ygoId: Number,
