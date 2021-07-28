@@ -45,12 +45,18 @@ function show (req, res) {
   .then(profile => {
     Profile.findById(req.user.profile)
     .then(userProfile => {
-    res.render('profiles/show', {
-      //profile of the user clicked
-      profile,
-      //profile of the logged in user
-      userProfile,
-      title: `${profile.name}'s profile`
+    Deck.find({ owner: profile._id})
+    .then(decks => {
+      res.render('profiles/show', {
+        //profile of the user clicked
+        profile,
+        //profile of the logged in user
+        userProfile,
+        title: `${profile.name}'s profile`,
+        decks
+    })
+
+    
       })
     })
   })
