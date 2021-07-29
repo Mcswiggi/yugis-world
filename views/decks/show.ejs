@@ -35,14 +35,31 @@
                       <p class="card-text fs-5 text-light">card type: <%= card.type %></p>
                       <p class="card-text fs-5 text-light">card archetype: <%= card.archetype %></p>
                       <p class="card-text fs-5 text-light">description: <%= card.description %></p>
-                    </div>
+
+                      <form 
+                      class="text-center" 
+                      action="/decks/<%= card._id %>?_method=DELETE" 
+                      method="POST"
+                    >
+
+                    
+                    <button class="btn btn-danger">
+                      Remove card from deck
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
-          </main>
+          </div>
+        </main>
         <% } %> 
-   
-      <% }) %> 
-  
+        
+        
+        
+        <% }) %> 
+        <input type="text" hidden name="deckId" value="<%= deck._id %>">
+      </form>
+        <% //console.log(card._id) %> 
+        
         <%- include('../partials/footer') %>
+        
