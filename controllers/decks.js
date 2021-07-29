@@ -26,6 +26,12 @@ function newDeck (req, res) {
 
 function index (req, res){
     Deck.find({})
+    .populate({ 
+        path: 'owner',
+        populate: {
+            path: 'owner'
+        }
+    })
     .then((decks) => {
         res.render('decks/index', {
             title: 'All Decks',
@@ -36,6 +42,7 @@ function index (req, res){
         res.render(err)
     })
 }
+
 function create (req, res){
     //deck owner is the profile logged in
     req.body.owner=req.user.profile._id
@@ -47,20 +54,9 @@ function create (req, res){
        profile.save()
        .then(()=>{
            res.redirect('/profiles')
-       })
+            })
+        })
     })
-    })
-    // const cardToCreate = {
-    //     name: req.body.name,
-    //     attack: req.body.attack,
-    //     defense: req.body.defense,
-    //     description: req.body.description,
-    //     type: req.body.type,
-    //     ygoId: req.body.ygoId,
-    //     attribute: req.body.attribute,
-    //     imageUrl: req.body.imageUrl,
-    // }
-    // Deck.cards.push(cardToCreate)
     .catch((err) => {
         res.render(err)
     })
@@ -74,7 +70,7 @@ function show (req, res){
     res.render('decks/show', {
         title: 'Deck Show Page',
         deck
-    }) 
+        }) 
     })
 }
 function update (req, res){
