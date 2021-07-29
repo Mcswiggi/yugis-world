@@ -3,7 +3,24 @@
     Decks index
     <% decks.forEach(deck => { %>
         <a href="/decks/<%= deck._id %> "><h2><%= deck.owner.name %>'s - <%=  deck.name  %> Deck</h2></a>
-        
+        <div class="col">
+            <div class="card bg-dark shadow-sm mb-3">
+             > 
+              <% if (deck.cards.length >= 1) {%>
+                <img
+                  class="card-img-top"
+                  src="<%= deck.cards[0].imageUrl %>"
+                  alt="<%= deck.cards.name %>'s image"
+                  width="100%"
+                />
+              <% } else {%>
+                <img
+                class="card-img-top"
+                src="/images/icons/user.png"
+                alt="A placeholder avatar"
+                width="100%"
+                />
+              <% } %>
     <% }) %> 
 
 <%- include('../partials/footer') %>

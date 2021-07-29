@@ -51,6 +51,7 @@ function index (req, res){
             path: 'owner'
         }
     })
+    .populate('cards')
     .then((decks) => {
         res.render('decks/index', {
             title: 'All Decks',
