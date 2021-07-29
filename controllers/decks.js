@@ -15,10 +15,6 @@ export{
 }
 
 function deleteCardFromDeck (req, res) {
-    console.log('emma')
-    console.log('card req.params.id', req.params.id)
-    console.log('deck id', req.body.deckId)
-    //console.log('req.params.id', req.params._id)
     Card.findById(req.params.id)
     .then((card) => {
     card.addedToDeck.remove(req.body.deckId)
@@ -33,13 +29,9 @@ function deleteCardFromDeck (req, res) {
             res.redirect(`/decks/${req.body.deckId}`)
                 })
             })
-        })
+         })
     })
-    //find deck and then find cards of deck
-    //Deck.findById(req.body.)
-    //and delete
-    //redirect to deck.show page which is decks._id
-    }
+}
 
 function edit (req, res) {
 

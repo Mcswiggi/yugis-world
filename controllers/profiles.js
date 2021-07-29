@@ -46,6 +46,7 @@ function show (req, res) {
     Profile.findById(req.user.profile)
     .then(userProfile => {
     Deck.find({ owner: profile._id})
+    .populate('cards')
     .then(decks => {
       res.render('profiles/show', {
         //profile of the user clicked

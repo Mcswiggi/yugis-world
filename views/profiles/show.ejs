@@ -118,21 +118,24 @@
         <% decks.forEach(deck => { %>
           <div class="col">
             <div class="card bg-dark shadow-sm mb-3">
-              <% //if (game.imageUrl) { %>
+             > 
+              <% if (deck.cards.length >= 1) {%>
                 <img
                   class="card-img-top"
-                  src="<%= //game.imageUrl %>"
-                  alt="<%= //game.name %>'s image"
+                  src="<%= deck.cards[0].imageUrl %>"
+                  alt="<%= deck.cards.name %>'s image"
                   width="100%"
                 />
-              <% //} else {%>
+              <% } else {%>
                 <img
-                  class="card-img-top"
-                  src="/images/icons/user.png"
-                  alt="A placeholder avatar"
-                  width="100%"
+                class="card-img-top"
+                src="/images/icons/user.png"
+                alt="A placeholder avatar"
+                width="100%"
                 />
-              <% //} %>
+              <% } %>
+
+
               <div class="card-body">
                 <p class="card-title fs-4 text-light"><%= deck.name %></p>
                

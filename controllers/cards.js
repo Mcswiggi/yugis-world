@@ -6,11 +6,8 @@ import axios from 'axios'
 export{
     show,
     create,
-    //update,
-    //deleteCard as delete,
     search,
     addToDeck,
-    removeFromDeck,
 }
 
 function addToDeck(req, res) {
@@ -53,21 +50,6 @@ function addToDeck(req, res) {
     }
   })
   .catch(err => {
-    console.log(err)
-    res.redirect('/')
-  })
-}
-
-function removeFromDeck(req, res) {
-   Card.findOne({ ygoId: req.params.id})
-   .then(card => {
-     card.addedToDeck.remove({_id: req.user.profile._id}) //also reference Deck to remove cards from deck
-     card.save()
-     .then(() => {
-       res.redirect(`/cards/${req.params.id}`)
-     })
-   })
-   .catch(err => {
     console.log(err)
     res.redirect('/')
   })
@@ -130,19 +112,4 @@ function search(req, res) {
       .catch((err) => {
         res.render(err)
     })
-}
-function update (req, res) {
-    // Card.findByIdAndUpdate(req.params.id, req.body, {new:true})
-    // .then((card) => {
-    //     res.json(card)
-    // })
-    // .catch((err) => {
-    //     res.json(err)
-    // })
-}
-function deleteCard (req, res) {
-    // Card.findByIdAndDelete(req.params.id)
-    // .then((card) => {
-    //     res.json(card)
-    // })
 }
