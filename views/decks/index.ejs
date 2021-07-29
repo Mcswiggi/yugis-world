@@ -2,10 +2,8 @@
 <%- include('../partials/nav') %>
     Decks index
     <% decks.forEach(deck => { %>
-        <a href="/decks/<%= deck._id %> "><h2><%=  deck.name  %></h2></a>
-        <a href="/decks/<%= deck._id %> "><h2><%= deck.owner.name %></h2></a>
-
-
+        <a href="/decks/<%= deck._id %> "><h2><%= deck.owner.name %>'s - <%=  deck.name  %> Deck</h2></a>
+        
     <% }) %> 
 
 <%- include('../partials/footer') %>
