@@ -3,13 +3,12 @@
 
 <h1>Cards result page new.ejs </h1>
 
-
 <% if (results) { %>
-  <% console.log("results.data[0].name", results.data[0].name) %> 
     <main class="bg-light">
       <div class="container py-5 px-3">
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g5 px-sm-5 px-4">
-          <% //results.data[0].forEach(card => { %>
+          <% results.data.forEach(card => { %>
+            <% results.data[0] = card %> 
             <div class="col">
               <div class="card bg-dark shadow-sm mt-3">
                 <% if (results.data[0].card_images[0].image_url) { %>
@@ -23,12 +22,13 @@
                 <% } else {%>
                   <img
                     class="card-img-top"
-                    src="/images/icons/user.png"
-                    alt="A placeholder avatar"
+                    src="https://cdn.shopify.com/s/files/1/1425/8892/products/KON74145--Yu-Gi-Oh-Card-Back-Sleeves-50ct_da77d52d-fbd1-472c-8d87-243660b780ff_1024x1024.jpg?v=1597209386"
+                    alt="A placeholder card"
                     width="100%"
                     height="170"
                   />
                 <% } %>
+
                 <div class="card-body">
                   <p class="card-title fs-4 text-light">name: <%= results.data[0].name %></p>
                   <p class="card-text fs-5 text-light">card type: <%= results.data[0].type %></p>
@@ -36,13 +36,7 @@
                   <p class="card-text fs-5 text-light"> <%= results.data[0].atk ? "atk:" : ""  %>  <%= results.data[0].atk %></p>
                   <p class="card-text fs-5 text-light"> <%= results.data[0].def ? "def:" : ""  %> <%= results.data[0].def %></p>
                   <p class="card-text fs-5 text-light">description: <%= results.data[0].desc %></p>
-                  <p class="card-text fs-5 text-light"><%= results.data[0].attribute ? "attribute:" : ""  %><%= results.data[0].attribute %></p>
-                 
-                  <%# This is where our game show UI will go %>  add card right from our search page
-                  <% //results.id should send me to details on the searched card? %> 
-                  <!-- <a href="/cards/<%= results.data[0].id %>" class="btn btn-primary">Details</a> -->
-                  <!-- <a href="/cards/<%= results.data[0].name %>" class="btn btn-primary">Details</a> -->
-
+                  <p class="card-text fs-5 text-light"><%= results.data[0].attribute ? "attribute:" : ""  %><%= results.data[0].attribute %></p>                
 
                   <form action="/cards/<%= results.data[0].id %>/addToDeck  " method="POST">
                     <select name="addedToDeck">
@@ -59,16 +53,14 @@
                     <input type="hidden" name="attribute" value="<%=results.data[0].attribute%>">
                     <input type="hidden" name="archetype" value="<%= results.data[0].race %>">
                     <input type="hidden" name="ygoId" value="<%=results.data[0].id%>">
-                    <input type="hidden" name="imageUrl" value="<%=results.data[0].card_images[0].image_url%>">
-                    
-                    
-                    
+                    <input type="hidden" name="imageUrl" value="<%=results.data[0].card_images[0].image_url%>">                   
+                                       
                     <button>Submit</button>
                   </form>
                 </div>
               </div>
             </div>
-            <% //}) %> 
+            <% }) %> 
         </div>
       </div>
     </main>
