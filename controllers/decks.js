@@ -13,6 +13,7 @@ export{
 }
 
 function deleteCardFromDeck (req, res) {
+    //if user logged in is not the owner of the deck
     Card.findById(req.params.id)
     .then((card) => {
     card.addedToDeck.remove(req.body.deckId)

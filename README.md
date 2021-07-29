@@ -19,5 +19,16 @@ My Yugioh deck building app allows a user to create multiple decks.  This can be
 
 
 <h1> Technologies Used: List of the technologies used</h1>
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>Javascript</li>
+<li>Node.js</li>
+<li>Mongoose</li>
+<li>MongoDb</li>
+<li>Google OAuth 2.0</li>
+<li>Google OAuth 2.0</li>
+<li>Bootstrap </li>
+</ul>
 
 <h1> Next Steps: Planned future enhancements (icebox items).</h1>

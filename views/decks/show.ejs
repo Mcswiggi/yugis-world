@@ -37,18 +37,21 @@
                   <p class="card-text fs-5 text-light">card type: <%= card.type %></p>
                   <p class="card-text fs-5 text-light">card archetype: <%= card.archetype %></p>
                   <p class="card-text fs-5 text-light">description: <%= card.description %></p>
-
+                  
+                  <% if (deck.owner._id.toString() === user.profile._id.toString()) { %> 
                   <form 
                   class="text-center" 
-                  action="/decks/<%= card._id %>?_method=DELETE" 
+                  action="/decks/<%=card._id%>?_method=DELETE" 
                   method="POST"
                 >
                 <input type="text" hidden name="deckId" value="<%= deck._id %>">
                 <button class="btn btn-danger">
                   Remove card from deck
                 </button>
-              </form>
+              
+                <% } %>
 
+              </form>
               </div>
             </div>
           </div>
