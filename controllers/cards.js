@@ -57,8 +57,8 @@ function addToDeck(req, res) {
 
 
 function search(req, res) {
-  //axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${req.body.search}`)
-  axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${req.body.search}`)
+  axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${req.body.search}`)
+  //axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${req.body.search}`)
   .then((response) => {    
     Profile.findById(req.user.profile._id)
     .populate('decks')
@@ -80,26 +80,26 @@ function search(req, res) {
 }
 
   function show (req, res) {
-    axios                               //getting dark magician as the query
-    //.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${req.body.search}`)
-    .get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${req.body.search}`)
-    .then((response) => {
-      console.log('response.data.id', response.data.id)
-      Card.findOne({ ygoId: response.data.id })
-      // This is where we'll populate collectedBy
-      .populate('addedToDeck')
-          .then((card)=> {
-            res.render("cards/show", {
-              title: "Card Details",
-              apiResult: response.data,
-              card
-            })
-          })
-        })
-        .catch(err => {
-          console.log(err)
-          res.redirect('/')
-        })
+    // axios                               //getting dark magician as the query
+    // //.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${req.body.search}`)
+    // .get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${req.body.search}`)
+    // .then((response) => {
+    //   console.log('response.data.id', response.data.id)
+    //   Card.findOne({ ygoId: response.data.id })
+    //   // This is where we'll populate collectedBy
+    //   .populate('addedToDeck')
+    //       .then((card)=> {
+    //         res.render("cards/show", {
+    //           title: "Card Details",
+    //           apiResult: response.data,
+    //           card
+    //         })
+    //       })
+    //     })
+    //     .catch(err => {
+    //       console.log(err)
+    //       res.redirect('/')
+    //     })
       }
       
       

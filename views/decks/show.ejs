@@ -1,6 +1,8 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
+<% if (deck.cards.length >= 1) { %>
+
 <% deck.cards.forEach(card => { %>
   <h2><%= card.name %></h2>
   <% if (card) { %>
@@ -57,6 +59,10 @@
     
     <% }) %> 
 
+  <% } else { %>
+
+<h1>add some cards!</h1>
+  <% } %> 
 
         
         <%- include('../partials/footer') %>
