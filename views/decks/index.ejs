@@ -3,24 +3,20 @@
     Decks index
     <% decks.forEach(deck => { %>
         <a href="/decks/<%= deck._id %> "><h2><%= deck.owner.name %>'s - <%=  deck.name  %> Deck</h2></a>
-        <div class="col">
-            <div class="card bg-dark shadow-sm mb-3">
-             > 
+          
               <% if (deck.cards.length >= 1) {%>
                 <img
-                  class="card-img-top"
                   src="<%= deck.cards[0].imageUrl %>"
                   alt="<%= deck.cards.name %>'s image"
-                  width="100%"
+                  width="200px"
                 />
               <% } else {%>
                 <img
-                class="card-img-top"
-                src="/images/icons/user.png"
+                src="https://cdn.shopify.com/s/files/1/1425/8892/products/KON74145--Yu-Gi-Oh-Card-Back-Sleeves-50ct_da77d52d-fbd1-472c-8d87-243660b780ff_1024x1024.jpg?v=1597209386"
                 alt="A placeholder avatar"
-                width="100%"
+                width="200px"
                 />
-              <% } %>
+              <% } %>  
     <% }) %> 
 
 <%- include('../partials/footer') %>

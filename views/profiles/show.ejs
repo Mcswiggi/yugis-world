@@ -51,17 +51,7 @@
         </tbody>
       </table>
     </div>
-    <% if (user.profile._id.toString() === profile._id.toString()) { %>
-      <%# This is where we'll add the UI to edit a profile %> 
-      
-      <a 
-        class="btn btn-danger ms-4"
-        role="button" 
-        href="/auth/logout"
-      >
-        Logout
-      </a>
-    <% } %>
+   
     <%# This is where we'll add a button to 'friend/unfriend' a user %> 
     <%# if this is not my profile page          &&  the user being viewed is not in my friends list %> 
     <% if (!profile._id.equals(userProfile._id) && !userProfile.friends.includes(profile._id)) { %>
@@ -124,14 +114,14 @@
                   class="card-img-top"
                   src="<%= deck.cards[0].imageUrl %>"
                   alt="<%= deck.cards.name %>'s image"
-                  width="100%"
+                  width="30%"
                 />
               <% } else {%>
                 <img
                 class="card-img-top"
-                src="/images/icons/user.png"
-                alt="A placeholder avatar"
-                width="100%"
+                src="https://cdn.shopify.com/s/files/1/1425/8892/products/KON74145--Yu-Gi-Oh-Card-Back-Sleeves-50ct_da77d52d-fbd1-472c-8d87-243660b780ff_1024x1024.jpg?v=1597209386"
+                alt="NO CARDS IN DECK"
+                width="200px"
                 />
               <% } %>
 
@@ -149,7 +139,6 @@
             </div>
           </div>
         <% }) %>
-        <a href="/decks/new">Create a Deck</a>
       </div>
     </div>
   </section>

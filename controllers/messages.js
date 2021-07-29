@@ -10,13 +10,6 @@ export{
     edit
 }
 
-// .populate({
-//     path: 'replies',
-//     populate: {
-//       path: 'author'
-//     }
-
-
 function edit (req, res) {
     Message.findById(req.params.id)
     .populate({ 
@@ -37,16 +30,6 @@ function edit (req, res) {
     })
 }
 
-// function edit (req, res) {
-//     Message.findById(req.params.id)
-//     .then(message => {
-//         res.render('messages/edit', {
-//             title: "Edit message",
-//             message
-//         })
-//     })
-// }
-
 function index (req, res){
     Message.find({})
     .populate('author')
@@ -66,7 +49,7 @@ req.body.author = req.user.profile._id
 Message.create(req.body)
 .then(() => {
     res.redirect('/messages')
-})
+    })
 }
 
 function show (req, res){

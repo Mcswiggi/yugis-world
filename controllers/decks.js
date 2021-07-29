@@ -7,10 +7,8 @@ export{
     index,
     create,
     show,
-    update,
     deleteCardFromDeck,
     newDeck as new,
-    edit,
 
 }
 
@@ -33,9 +31,6 @@ function deleteCardFromDeck (req, res) {
     })
 }
 
-function edit (req, res) {
-
-}
 
 function newDeck (req, res) {
     res.render('decks/new', {
@@ -92,8 +87,5 @@ function show (req, res){
         deck
         }) 
     })
-}
-function update (req, res){
-
 }
 

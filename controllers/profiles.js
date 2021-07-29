@@ -1,7 +1,6 @@
 import { Profile } from '../models/profile.js'
 import { Deck } from "../models/deck.js"
 
-
 export {
   index,
   show,
@@ -74,4 +73,3 @@ function index (req, res) {
     })
   })
 }
-

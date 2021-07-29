@@ -57,7 +57,6 @@ function addToDeck(req, res) {
 
 
 function search(req, res) {
-  console.log(req.body.search)
   //axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=${req.body.search}`)
   axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${req.body.search}`)
   .then((response) => {    
