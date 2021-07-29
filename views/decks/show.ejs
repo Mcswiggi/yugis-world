@@ -41,25 +41,22 @@
                       action="/decks/<%= card._id %>?_method=DELETE" 
                       method="POST"
                     >
-
-                    
+                    <input type="text" hidden name="deckId" value="<%= deck._id %>">
                     <button class="btn btn-danger">
                       Remove card from deck
                     </button>
+                  </form>
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </main>
-        <% } %> 
-        
-        
+          <% } %> 
         
         <% }) %> 
-        <input type="text" hidden name="deckId" value="<%= deck._id %>">
-      </form>
-        <% //console.log(card._id) %> 
+
+
         
         <%- include('../partials/footer') %>
-        

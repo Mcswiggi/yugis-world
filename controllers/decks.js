@@ -16,19 +16,21 @@ export{
 
 function deleteCardFromDeck (req, res) {
     console.log('emma')
-    console.log('deck id',req.body.deckId)
+    console.log('card req.params.id', req.params.id)
+    console.log('deck id', req.body.deckId)
     //console.log('req.params.id', req.params._id)
     Card.findById(req.params.id)
     .then((card) => {
-        card.addedToDeck.remove(req.body.deckId)
-        card.save()
+    card.addedToDeck.remove(req.body.deckId)
+    card.save()
         .then(() => {
         Deck.findById(req.body.deckId)
         .then(deck => {
         deck.cards.remove(card._id)
         deck.save()
-        .then(() => {
-        res.redirect(`/decks/${req.body.deckId}`)
+            .then(() => {
+            card,
+            res.redirect(`/decks/${req.body.deckId}`)
                 })
             })
         })
