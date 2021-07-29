@@ -25,7 +25,7 @@ function addToDeck(req, res) {
         card.addedToDeck.push(deck._id)
         card.save()
         .then(() => {
-          res.redirect(`/profiles`)
+          res.redirect(`/decks/${deck._id}`)
         })
       })
     })
@@ -42,7 +42,7 @@ function addToDeck(req, res) {
         card.addedToDeck.push(deck._id)
         card.save()
         .then(() => {
-          res.redirect(`/profiles`)
+          res.redirect(`/decks/${deck._id}`)
         })
       })
       })

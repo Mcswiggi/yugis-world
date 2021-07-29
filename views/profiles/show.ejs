@@ -37,17 +37,7 @@
             <td>Name:</td>
             <td><%= profile.name %></td>
           </tr>
-          <tr>
-            <td>Avatar URL:</td>
-            <td>
-              <a href="<%= profile.avatar %>">
-                <%= profile.avatar.substring(0, 35) %>
-                <% if (profile.avatar.length > 35) { %>
-                ...
-                <% } %>
-              </a>
-            </td>
-          </tr>
+         
         </tbody>
       </table>
     </div>
@@ -127,7 +117,7 @@
 
 
               <div class="card-body">
-                <p class="card-title fs-4 text-light"><%= deck.name %></p>
+                <p class="card-title fs-4 text-light"><%= deck.name %> Deck</p>
                
                 <a 
                   href="/decks/<%= deck._id %>" 

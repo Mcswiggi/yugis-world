@@ -1,6 +1,9 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
     Decks index
+
+    <a href="/decks/new">Create a Deck</a>
+
     <% decks.forEach(deck => { %>
         <a href="/decks/<%= deck._id %> "><h2><%= deck.owner.name %>'s - <%=  deck.name  %> Deck</h2></a>
           
