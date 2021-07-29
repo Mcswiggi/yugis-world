@@ -3,7 +3,6 @@ const router = Router()
 import * as cardsCtrl from '../controllers/cards.js'
 
 router.post('/', isLoggedIn, cardsCtrl.create)
-router.get('/:id', isLoggedIn, cardsCtrl.show)
 router.post('/:id/addToDeck', isLoggedIn, cardsCtrl.addToDeck)
 router.post('/search', isLoggedIn, cardsCtrl.search)
 

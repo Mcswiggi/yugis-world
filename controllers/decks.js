@@ -60,7 +60,7 @@ function index (req, res){
 
 function create (req, res){
     //deck owner is the profile logged in
-    req.body.owner=req.user.profile._id
+    req.body.owner = req.user.profile._id
     Deck.create(req.body)
     .then((deck) => {
     Profile.findById(req.body.owner)
@@ -68,7 +68,7 @@ function create (req, res){
        profile.decks.push(deck._id)
        profile.save()
        .then(()=>{
-           res.redirect('/profiles')
+           res.redirect(`/decks/${deck._id}`)
             })
         })
     })

@@ -35,8 +35,29 @@
   width: 1px; 
 }
 
-body{
-  background-image: url('https://freeaddon.com/wallpaper/yugioh/bg-01.jpg');
+nav{
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/84dc13b7-a2e7-4b45-83ec-311e72e82900/dd6hhft-d09c0a51-dc22-43e0-b4c4-9d426fb7c14a.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg0ZGMxM2I3LWEyZTctNGI0NS04M2VjLTMxMWU3MmU4MjkwMFwvZGQ2aGhmdC1kMDljMGE1MS1kYzIyLTQzZTAtYjRjNC05ZDQyNmZiN2MxNGEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.rFUrNSDar1CwY76UDGRqCp1oBOP2Mi5j3lUXggjHz2c');
   background-position: center;
+  
+}
+
+
+
+#hometitlecard{
+  opacity: 70%;
+}
+
+#home-title{
+  color: black;
+  opacity: 100%;
+}
+
+body{
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0174c389-7957-4694-84e6-26c1e301c91b/db9gtug-bf9314a1-de34-4297-9662-e0d68de53a97.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzAxNzRjMzg5LTc5NTctNDY5NC04NGU2LTI2YzFlMzAxYzkxYlwvZGI5Z3R1Zy1iZjkzMTRhMS1kZTM0LTQyOTctOTY2Mi1lMGQ2OGRlNTNhOTcuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.gyLmK2yaHLDq5gCr5BMzvTRIaGsXO4pmC4mlKLTlhTs");
+  background-position: center;
+  width: 100%;
+  top: 0;
+  left: 0;
   background-repeat: no-repeat;
+  height: 100vh;
 }
