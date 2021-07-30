@@ -5,9 +5,18 @@
 
 <style>
   
-  input {
+  #formInput {
+    display: flex;
     align-items: center;
+    justify-content: center;
+   
   }
+
+  #submitButton{
+    margin-left: 40px;
+    margin-bottom: 30px;
+  }
+
   </style>
 
 <form id="formInput" action="/messages" method="POST">
@@ -15,7 +24,8 @@
     <input class="form-control" type="text" name="title" aria-label=".form-control-lg example" >  <h2 id="formLabel">Post Title</h2>
     <input class="form-control" type="text" name="content" aria-label=".form-control-lg example" > <h2 id="formLabel">Post Comment</h2> 
   </div>
-   <button class="btn btn-outline-light">Submit</button>
+</br>
+   <button class="btn btn-outline-light" id="submitButton">Submit</button>
    </form>
 
 

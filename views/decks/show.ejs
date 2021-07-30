@@ -9,9 +9,6 @@
 </style>
 <h2>  Deck Name: <%= deck.name %> Deck</h2> 
 
-
-   
-    
     <main>
       <div class="container py-5 px-3">
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g5 px-sm-5 px-4">
@@ -44,6 +41,7 @@
                   <p class="card-text fs-5 text-light">card type: <%= card.type %></p>
                   <p class="card-text fs-5 text-light">card archetype: <%= card.archetype %></p>
                   <p class="card-text fs-5 text-light">description: <%= card.description %></p>
+                </div>
                   
                   <% if (deck.owner._id.toString() === user.profile._id.toString()) { %> 
                   <form 
@@ -56,21 +54,20 @@
                       Remove card from deck
                     </button>
                   </form>
-              </div>
                 <% } %>
 
                 <% } %> 
-              </div>
-            </div>
-          
-        </main>
-    
-    <% }) %> 
-
-  <% } else { %>
-
-  <h1>Search and add some cards!</h1>
-  <% } %> 
+              </main>
+              
+              <% }) %> 
+              
+              <% } else { %>
+                
+                <h2>Search and add some cards!</h2>
+                <% } %> 
+                
+          </div>
+    </div>
   
         
         <%- include('../partials/footer') %>
