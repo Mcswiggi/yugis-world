@@ -5,8 +5,8 @@ My Yugioh deck building app allows a user to create multiple decks by using an A
 
 <h1>Getting Started: </h1>
 
-<ul>
 Link to Yugi's World: <a>https://kaiba-corp-yugis-world.herokuapp.com/</a>
+<ul>
 <li> Log in with your Google account </li>
 <li> Create a Deck(s) </li>
 <li> Use the search bar to search for some cards to add to your deck </li>
