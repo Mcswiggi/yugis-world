@@ -35,7 +35,7 @@ function index (req, res){
     .populate('author')
     .then((messages) => {
         res.render('messages/index', {
-            title: 'All Messages',
+            title: "Yugi's World",
             messages
         })
     })

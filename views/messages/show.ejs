@@ -1,9 +1,14 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
-message show page
+
+<style>
+  p, h2, label, h4{
+    color: white;
+  }
+  
+</style>
 
 <main class="container">
-    <h1 class="my-3"><%= //title %></h1>
     <section class="p-4 p-md-5 mb-4 text-white rounded bg-dark mx-4">
       <div class="col-md-8 text-light px-0">
         <h3 class="fs-1 fst-italic"><%= message.title %></h3>
@@ -29,19 +34,15 @@ message show page
         <p class="lead my-3"><%= message.content %> </p>
       </div>
     </section>
-    <form action="/messages/<%= message._id %>" method="POST" class="mb-3">
-      <h2 class="mb-3">Write a Reply</h2>
-      <div class="mb-3 mx-5">
-        <label for="reply-content" class="form-label">Reply</label>
-        <textarea 
-          class="form-control" 
-          id="reply-content" 
-          rows="3" 
-          name="content"
-        ></textarea>
-      </div>
-      <button class="btn btn-primary ms-5" type="submit">Reply</button>
-    </form>
+ 
+ 
+ 
+  
+  
+  
+  
+  
+  
     <% if (message.replies.length) { %>
       <h2 class="mb-3">All Replies</h2>
     <% } %>
@@ -52,7 +53,7 @@ message show page
           <h4 class="mb-0 fs-5 fst-italic"> 
             <a 
               href="/profiles/<%= reply.author._id %>"
-              class="text-decoration-none text-dark"
+              class="text-decoration-none text-light"
             >
               <img
                 src="<%= reply.author.avatar %>"
@@ -69,6 +70,22 @@ message show page
         </div>
       </section>
     <% }) %>
+
+
+
+    <form action="/messages/<%= message._id %>" method="POST" class="mb-3">
+      <h2 class="mb-3">Write a Reply</h2>
+      <div class="mb-3 mx-5">
+        <label for="reply-content" class="form-label"></label>
+        <textarea 
+          class="form-control" 
+          id="reply-content" 
+          rows="3" 
+          name="content"
+        ></textarea>
+      </div>
+      <button class="btn btn-primary ms-5" type="submit">Reply</button>
+    </form>
   </main>
 
 <%- include('../partials/footer') %>
