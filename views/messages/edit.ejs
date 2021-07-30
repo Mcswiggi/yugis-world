@@ -1,8 +1,18 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
+<style>
+  h2, label, h4{
+    color: white;
+  }
+  
+  #submitButton{
+    margin: 20px 0 25px;
+  }
+</style>
+
 <main>
-  <%# Add the action below as the update UI %> 
+  
   <form 
     class="container d-flex flex-column align-items-center"
     action="/messages/<%= message._id %>?_method=PUT"
@@ -18,7 +28,7 @@
         value="<%= message.title %>"
       >
     <div class="mb-3 w-75">
-      <label for="name-input" class="form-label">Message Title</label>
+      <label for="name-input" class="form-label">Reply</label>
       <input 
         type="text"
         class="form-control"
@@ -27,7 +37,7 @@
         value="<%= message.content %>"
       >
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
   </form>
 
 
