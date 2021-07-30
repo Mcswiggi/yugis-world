@@ -13,6 +13,7 @@ https://cdn.shopify.com/s/files/1/1425/8892/products/KON74145--Yu-Gi-Oh-Card-Bac
 My Yugioh deck building app allows a user to create multiple decks.  This can be useful for keeping track of what cards you would want in your deck. My app has a search function that uses an api to retrieve real Yugioh card data
 
 <h1>Getting Started: Includes a link to the deployed app and the Trello planning </h1>
+<a>https://kaiba-corp-yugis-world.herokuapp.com/</a>
 
 <h1> Screenshot(s): App's landing page and any other screenshots of interest</h1>
 

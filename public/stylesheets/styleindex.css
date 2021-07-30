@@ -1,0 +1,79 @@
+.siwg {
+  background: url(/images/auth/google/siwg_dark_normal.png);
+  cursor: pointer;
+  border: none;
+  width: 191px;
+  height: 46px;
+}
+
+.siwg:focus {
+  background: url(/images/auth/google/siwg_dark_focus.png);
+  outline: none;
+}
+
+.siwg:active {
+  background: url(/images/auth/google/siwg_dark_pressed.png);
+}
+
+.siwg::after{
+  position:absolute; 
+  width:0; 
+  height:0; 
+  overflow:hidden; 
+  z-index:-1; 
+  content:url(/images/auth/google/siwg_dark_pressed.png) url(/images/auth/google/siwg_dark_focus.png)
+}
+
+
+#siwg-image {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; 
+}
+
+
+
+
+
+#hometitlecard{
+  opacity: 70%;
+}
+
+#home-title{
+  color: rgb(177, 210, 199);
+  opacity: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 700%;
+  text-align: center;
+
+}
+
+body{
+  /* background-image: url("../images/1300534.jpg"); */
+  background-position: center;
+  height: 90vh;
+  /* opacity: 50%; */
+  /* background-size: cover; */
+  top: 500px;
+  left: 0;
+  background-repeat: no-repeat;
+  background: rgb(2,0,36);
+  background: radial-gradient(circle, rgba(2,0,36,1) 65%, rgba(0,212,255,1) 87%, rgba(19,34,56,1) 92%);
+}
+
+.body::before{
+opacity: 50%;
+}
+
+#createButton{
+  /* position: relative; */
+  /* left:50%; */
+  /* top: 20%; */
+  display: flex;
+  justify-content: center;
+
+}
