@@ -19,7 +19,7 @@ Trello Board:
 <img src='./public/images/trello.png'>
 
 
-<h1> Screenshot(s): App's landing page and any other screenshots of interest</h1>
+<h1> Screenshot(s):</h1>
 Landing Page:
 <img src='./public/images/erd.png'>
 
@@ -39,7 +39,7 @@ Profile Show Page:
 Deck Index Page:
 <img src='./public/images/deckIndex.png'>
 
-<h1> Technologies Used: List of the technologies used</h1>
+<h1> Technologies Used:</h1>
 <ul>
 <li>HTML</li>
 <li>CSS</li>
