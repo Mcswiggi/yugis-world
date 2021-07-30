@@ -49,7 +49,9 @@
                       href="/messages/<%= message._id %>/edit"
                           > Edit Message</a>
                     <% } %> 
-                  <form 
+                  
+                    <% if (user.profile._id.toString() === message.author._id.toString()) { %>
+                    <form 
                     class="text-center" 
                     action="/messages/<%= message._id %>/?_method=DELETE" 
                     method="POST"
@@ -58,6 +60,7 @@
                       Remove Post
                     </button>
                   </form>    
+                  <% } %> 
                 </div>
       </div>
     </div>
