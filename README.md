@@ -21,14 +21,14 @@ Trello Board:
 
 <h1> Screenshot(s):</h1>
 Landing Page:
-<img src='./public/images/erd.png'>
+<img src='./public/images/home.png'>
 
 ERD:
 <img src='./public/images/erd.png'>
 
 Wireframes:
-<img src='./public/images/wireframe1.png'>
 <img src='./public/images/wireframe2.png'>
+<img src='./public/images/wireframe1.png'>
 
 Message Board:
 <img src='./public/images/messageIndex.png'>

@@ -1,30 +1,24 @@
-<%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
+<%- include('../partials/html-head') %> <%- include('../partials/nav') %>
 
 <h1>Cards result page index</h1>
 
-
 <% if (results) { %>
-<%  //console.log(results) %>
-    <main class="bg-light">
-      <div class="container py-5 px-3">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g5 px-sm-5 px-4">
-          <% results.data.forEach(card => { %>
-            <div class="col">
-              <div class="card bg-dark shadow-sm mt-3">
-    
-                <div class="card-body">
-                  <p class="card-title fs-4 text-light">name<%= card.name %></p>
-                 
-                  <%# This is where our game show UI will go %> 
-                  <a href="" class="btn btn-primary">Details</a>
-                </div>
-              </div>
-            </div>
-          <% }) %>
+
+<main class="bg-light">
+  <div class="container py-5 px-3">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g5 px-sm-5 px-4">
+      <% results.data.forEach(card => { %>
+      <div class="col">
+        <div class="card bg-dark shadow-sm mt-3">
+          <div class="card-body">
+            <p class="card-title fs-4 text-light">name<%= card.name %></p>
+
+            <a href="" class="btn btn-primary">Details</a>
+          </div>
         </div>
       </div>
-    </main>
-  <% } %> 
-
-<%- include('../partials/footer') %>
+      <% }) %>
+    </div>
+  </div>
+</main>
+<% } %> <%- include('../partials/footer') %>

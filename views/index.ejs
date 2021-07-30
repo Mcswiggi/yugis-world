@@ -1,16 +1,15 @@
-<%- include('./partials/html-head') %>
+<%- include('./partials/html-head') %> <%- include('./partials/nav') %>
+<section id="homepage">
+  <h1 id="home-title">Yugioh Deck Builder</h1>
 
-
-<%- include('./partials/nav') %>
-<section id="homepage" >
-
-    <h1 id="home-title">Yugioh Deck Builder</h1>
-   
-    <% if(user) {%> 
-   <div id="createButton">
-    <a href="/decks/new"><button type="button" class="btn btn-primary btn-lg">Create a Deck</button></a>
-</div>
-    <% } %> 
-
+  <% if(user) {%>
+  <div id="createButton">
+    <a href="/decks/new"
+      ><button type="button" class="btn btn-primary btn-lg">
+        Create a Deck
+      </button></a
+    >
+  </div>
+  <% } %>
 </section>
 <%- include('./partials/footer') %>

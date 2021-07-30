@@ -1,86 +1,95 @@
-<%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
+<%- include('../partials/html-head') %> <%- include('../partials/nav') %>
 
-
-<h1> card details page</h1>
+<h1>card details page</h1>
 
 <section class="bg-dark text-secondary px-4">
-    <h1 class="display-5 fw-bold text-white pt-2 text-center">
-      <%= apiResult.name %>
-    </h1>
-    <div class="container py-4">
-      <img 
-        width="100%" 
-        src="<%= apiResult.background_image %>" 
-        alt="<%= apiResult.name %>'s background image"
-      >
-      <div class="accordion" id="accordion">
-        <div class="accordion-item bg-dark">
-          <h2 class="accordion-header" id="headingOne">
-            <button 
-              class="accordion-button bg-dark text-light" 
-              type="button" 
-              data-bs-toggle="collapse" 
-              data-bs-target="#collapseOne" 
-              aria-expanded="true" 
-              aria-controls="collapseOne"
-            >
-              Game Description
-            </button>
-          </h2>
-          <div 
-            id="collapseOne" 
-            class="accordion-collapse collapse" 
-            aria-labelledby="headingOne" 
-            data-bs-parent="#accordion"
+  <h1 class="display-5 fw-bold text-white pt-2 text-center">
+    <%= apiResult.name %>
+  </h1>
+  <div class="container py-4">
+    <img
+      width="100%"
+      src="<%= apiResult.background_image %>"
+      alt="<%= apiResult.name %>'s background image"
+    />
+    <div class="accordion" id="accordion">
+      <div class="accordion-item bg-dark">
+        <h2 class="accordion-header" id="headingOne">
+          <button
+            class="accordion-button bg-dark text-light"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseOne"
+            aria-expanded="true"
+            aria-controls="collapseOne"
           >
-            <div class="accordion-body">
-              <p class="mt-4"><%= apiResult.description_raw %></p>
-            </div>
+            Game Description
+          </button>
+        </h2>
+        <div
+          id="collapseOne"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingOne"
+          data-bs-parent="#accordion"
+        >
+          <div class="accordion-body">
+            <p class="mt-4"><%= apiResult.description_raw %></p>
           </div>
         </div>
       </div>
-      <p class="mt-4 fs-4 text-light">Released: <%= apiResult.released %></p>
-      <p class="mt-4 fs-4 text-light">
-        ESRB Rating: 
-        <%= apiResult.esrb_rating ? apiResult.esrb_rating.name : 'N/A' %>
-      </p>
-      <p class="mb-1 fs-4 text-light">Platforms:</p>
-      <ul>
-        <% apiResult.platforms.forEach(p => { %>
-          <li class="fs-5 text-light"><%= p.platform.name %></li>
-        <% }) %>
-      </ul>
-      <p class="mb-1 fs-4 text-light">Developers:</p>
-      <ul>
-        <% apiResult.developers.forEach(d => { %>
-          <li class="fs-5 text-light"><%= d.name %></li>
-        <% }) %>
-      </ul>
-      <p class="mb-1 fs-4 text-light">Genres:</p>
-      <ul>
-        <% apiResult.genres.forEach(g => { %>
-          <li class="fs-5 text-light"><%= g.name %></li>
-        <% }) %>
-      </ul>
-      <p class="fs-5 text-light">
-        Metacritic Score: 
-        <%= apiResult.metacritic ? apiResult.metacritic : 'N/A' %>
-      </p>
+    </div>
+    <p class="mt-4 fs-4 text-light">Released: <%= apiResult.released %></p>
+    <p class="mt-4 fs-4 text-light">
+      ESRB Rating: <%= apiResult.esrb_rating ? apiResult.esrb_rating.name :
+      'N/A' %>
+    </p>
+    <p class="mb-1 fs-4 text-light">Platforms:</p>
+    <ul>
+      <% apiResult.platforms.forEach(p => { %>
+      <li class="fs-5 text-light"><%= p.platform.name %></li>
+      <% }) %>
+    </ul>
+    <p class="mb-1 fs-4 text-light">Developers:</p>
+    <ul>
+      <% apiResult.developers.forEach(d => { %>
+      <li class="fs-5 text-light"><%= d.name %></li>
+      <% }) %>
+    </ul>
+    <p class="mb-1 fs-4 text-light">Genres:</p>
+    <ul>
+      <% apiResult.genres.forEach(g => { %>
+      <li class="fs-5 text-light"><%= g.name %></li>
+      <% }) %>
+    </ul>
+    <p class="fs-5 text-light">
+      Metacritic Score: <%= apiResult.metacritic ? apiResult.metacritic : 'N/A'
+      %>
+    </p>
 
+    <form action="/cards" method="POST">
+      <input type="hidden" name="name" value="<%=results.data[0].name%>" />
+      <input type="hidden" name="attack" value="<%=results.data[0].atk%>" />
+      <input type="hidden" name="defense" value="<%=results.data[0].def%>" />
+      <input
+        type="hidden"
+        name="description"
+        value="<%=results.data[0].desc%>"
+      />
+      <input type="hidden" name="type" value="<%=results.data[0].race%>" />
+      <input type="hidden" name="ygoId" value="<%=results.data[0].id%>" />
+      <input
+        type="hidden"
+        name="attribute"
+        value="<%=results.data[0].attribute%>"
+      />
+      <input
+        type="hidden"
+        name="imageUrl"
+        value="<%=results.data[0].card_images[0].image_url%>"
+      />
+      <button>Submit</button>
 
-
-
-<form action="/cards" method="POST">
-    <input type="hidden" name="name" value="<%=results.data[0].name%>">
-    <input type="hidden" name="attack" value="<%=results.data[0].atk%>">
-    <input type="hidden" name="defense" value="<%=results.data[0].def%>">
-    <input type="hidden" name="description" value="<%=results.data[0].desc%>">
-    <input type="hidden" name="type" value="<%=results.data[0].race%>">
-    <input type="hidden" name="ygoId" value="<%=results.data[0].id%>">
-    <input type="hidden" name="attribute" value="<%=results.data[0].attribute%>">
-    <input type="hidden" name="imageUrl" value="<%=results.data[0].card_images[0].image_url%>">
-    <button>Submit</button>
-
-
-<%- include('../partials/footer') %>
+      <%- include('../partials/footer') %>
+    </form>
+  </div>
+</section>

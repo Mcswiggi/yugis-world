@@ -1,91 +1,86 @@
-<%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
+<%- include('../partials/html-head') %> <%- include('../partials/nav') %>
 
 <style>
-  h2{
+  h2 {
     color: white;
     text-align: center;
   }
-  .card-img, .card-img-bottom, .card-img-top{
-    width:350px 
+  .card-img,
+  .card-img-bottom,
+  .card-img-top {
+    width: 350px;
   }
-  .card-body{
+  .card-body {
     width: 350px;
   }
 
-  .card{
+  .card {
     display: inline-block;
   }
-  
-  
 </style>
-<h2>  Deck Name: <%= deck.name %> Deck</h2> 
+<h2>Deck Name: <%= deck.name %> Deck</h2>
 
 <% if (deck.cards.length >= 1) { %>
-  
-  <div class="row row-cols-3 row-cols-md-3 row-cols-xl-3 g5 px-sm-5 px-4">
-  <% deck.cards.forEach(card => { %>
-    <% if (card) { %>
-      
-                    <div class="col">
-                      <div class="card bg-dark shadow-sm mt-3">
-                    <% if (card.imageUrl) { %>
-                  <img
-                    class="card-img-top"
-                    src="<%= card.imageUrl %>"
-                    alt="<%= card.name %>'s image"
-                    width="250px"
-                    height="350px"
-                  />
-                <% } else {%>
-                  <img
-                    class="card-img-top"
-                    src="https://cdn.shopify.com/s/files/1/1425/8892/products/KON74145--Yu-Gi-Oh-Card-Back-Sleeves-50ct_da77d52d-fbd1-472c-8d87-243660b780ff_1024x1024.jpg?v=1597209386"
-                    alt="A placeholder avatar"
-                    width="250px"
-                    height="350px"
-                  />
-                <% } %>
-                <div class="card-body bg-dark">
-                  <p class="card-title fs-4 text-light">name: <%= card.name %></p>
-                  <p class="card-text fs-5 text-light"><%= card.attack ? "atk:" : "" %>  <%= card.attack %></p>
-                  <p class="card-text fs-5 text-light"><%= card.defense ? "def:" : "" %> <%= card.defense %></p>
-                  <p class="card-text fs-5 text-light"> <%= card.attribute ? "attribute:" : "" %>  <%= card.attribute %></p>
-                  <p class="card-text fs-5 text-light">card type: <%= card.type %></p>
-                  <p class="card-text fs-5 text-light">card archetype: <%= card.archetype %></p>
-                  <p class="card-text fs-5 text-light">description: <%= card.description %></p>
-                </div>
-                  
-                  <% if (deck.owner._id.toString() === user.profile._id.toString()) { %> 
-                  <form 
-                  class="text-center" 
-                  action="/decks/<%=card._id%>?_method=DELETE" 
-                  method="POST"
-                >
-                    <input type="text" hidden name="deckId" value="<%= deck._id %>">
-                    <button class="btn btn-danger">
-                      Remove card from deck
-                    </button>
-                  </form>
-                <% } %>
-              </div>
-            </div>
-            <!-- </div> -->
-            <% } %> 
-            
-            
-            
-            
-            
-            <% }) %> 
-          </div>
-              
-              <% } else { %>
-                
-                <h2>Search and add some cards!</h2>
-                <% } %> 
-                
-              
-  
-        
-        <%- include('../partials/footer') %>
+
+<div class="row row-cols-3 row-cols-md-3 row-cols-xl-3 g5 px-sm-5 px-4">
+  <% deck.cards.forEach(card => { %> <% if (card) { %>
+
+  <div class="col">
+    <div class="card bg-dark shadow-sm mt-3">
+      <% if (card.imageUrl) { %>
+      <img
+        class="card-img-top"
+        src="<%= card.imageUrl %>"
+        alt="<%= card.name %>'s image"
+        width="250px"
+        height="350px"
+      />
+      <% } else {%>
+      <img
+        class="card-img-top"
+        src="https://cdn.shopify.com/s/files/1/1425/8892/products/KON74145--Yu-Gi-Oh-Card-Back-Sleeves-50ct_da77d52d-fbd1-472c-8d87-243660b780ff_1024x1024.jpg?v=1597209386"
+        alt="A placeholder avatar"
+        width="250px"
+        height="350px"
+      />
+      <% } %>
+      <div class="card-body bg-dark">
+        <p class="card-title fs-4 text-light">name: <%= card.name %></p>
+        <p class="card-text fs-5 text-light">
+          <%= card.attack ? "atk:" : "" %> <%= card.attack %>
+        </p>
+        <p class="card-text fs-5 text-light">
+          <%= card.defense ? "def:" : "" %> <%= card.defense %>
+        </p>
+        <p class="card-text fs-5 text-light">
+          <%= card.attribute ? "attribute:" : "" %> <%= card.attribute %>
+        </p>
+        <p class="card-text fs-5 text-light">card type: <%= card.type %></p>
+        <p class="card-text fs-5 text-light">
+          card archetype: <%= card.archetype %>
+        </p>
+        <p class="card-text fs-5 text-light">
+          description: <%= card.description %>
+        </p>
+      </div>
+
+      <% if (deck.owner._id.toString() === user.profile._id.toString()) { %>
+      <form
+        class="text-center"
+        action="/decks/<%=card._id%>?_method=DELETE"
+        method="POST"
+      >
+        <input type="text" hidden name="deckId" value="<%= deck._id %>" />
+        <button class="btn btn-danger">Remove card from deck</button>
+      </form>
+      <% } %>
+    </div>
+  </div>
+
+  <% } %> <% }) %>
+</div>
+
+<% } else { %>
+
+<h2>Search and add some cards!</h2>
+<% } %> <%- include('../partials/footer') %>
