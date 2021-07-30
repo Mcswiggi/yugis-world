@@ -1,52 +1,62 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<h1> Battle Board </h1>
+<h1 id="home-title"> Battle Board </h1>
 
-<form action="/messages" method="POST">
-   <input type="text" name="title"> post title </input>
-   <input class="form-control" rows="3" type="text" name="content"> post comment</input>
-   <button>Submit</button>
+<style type="text/css">
+  
+  input {
+    align-items: center;
+  }
+  </style>
+
+<form id="formInput" action="/messages" method="POST">
+  <div class="col-md-6">
+    <input class="form-control" type="text" name="title" aria-label=".form-control-lg example" >  <h2 id="formLabel">Post Title</h2>
+    <input class="form-control" type="text" name="content" aria-label=".form-control-lg example" > <h2 id="formLabel">Post Comment</h2> 
+  </div>
+   <button class="btn btn-outline-light">Submit</button>
    </form>
 
-   
-   <div class="card">
-     <% messages.forEach(function(message) { %>
+
+   <div id="posts">
+   <% messages.forEach(function(message) { %>
+    <div class="card" style="width: 35rem;" id="postCard">
       <div class="card-header">
-         <a href="/messages/<%= message._id %>"> <%= message.title %> </a>
+         <h4> <%= message.title %></h4>
       </div>
       <div class="card-body">
-        <blockquote class="blockquote mb-0">
-          <p><%= message.content %></p>
-          <footer class="blockquote-footer"><%= message.author.name %></footer>
-        <a href="/messages/<%= message._id %>"><button>reply to post</button></a>
         
-        
-        <% if (user.profile._id.toString() === message.author._id.toString()) { %>
-         <a 
-                 class="btn btn-warning"
-                 role="button" 
-                 href="/messages/<%= message._id %>/edit"
-               >
-                 Edit message
-               </a>
-       <% } %> 
-     
-       <form 
-        class="text-center" 
-        action="/messages/<%= message._id %>/?_method=DELETE" 
-        method="POST"
-      >
-        <button class="btn btn-danger">
-          Remove Post
-        </button>
-      </form>    
-     
-         </blockquote>
+        <p class="card-text"><%= message.content %></p>
+
+        <footer class="blockquote-footer"><%= message.author.name %></footer>
+                    <div id="postButtons">
+                    <a href="/messages/<%= message._id %>" class="btn btn-primary">Reply to Post</a>
+                    
+                    <% if (user.profile._id.toString() === message.author._id.toString()) { %>
+                    <a 
+                      class="btn btn-warning"
+                      role="button" 
+                      href="/messages/<%= message._id %>/edit"
+                          >
+                            Edit Message
+                          </a>
+                    <% } %> 
+                
+                  <form 
+                    class="text-center" 
+                    action="/messages/<%= message._id %>/?_method=DELETE" 
+                    method="POST"
+                  >
+                    <button class="btn btn-danger">
+                      Remove Post
+                    </button>
+                  </form>    
+                </div>
       </div>
-      <% }) %> 
     </div>
- 
+    <% }) %> 
+  </div>
 
 <%- include('../partials/footer') %>
 
