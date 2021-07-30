@@ -1,12 +1,19 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<h1>Cards result page new.ejs </h1>
+<style>
+  h1{
+    color: white;
+    text-align: center;
+  }
+</style>
+
+<h1>Cards Search Results:</h1>
 
 <% if (results) { %>
-    <main class="bg-light">
+    <main>
       <div class="container py-5 px-3">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g5 px-sm-2 px-4">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 g5 px-sm-2 px-4">
           <% results.data.forEach(card => { %>
             <% results.data[0] = card %> 
             <div class="col">

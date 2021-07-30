@@ -1,12 +1,14 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<h1>Create Your Deck:</h1>
+<h1 id="home-title">Create Your Deck:</h1>
 <form action="/decks" method="POST">
     Deck name:
     <input type="text" name="name"> 
     <br>
+    <div class="createButton">
     <button>Create Deck</button>
+    </div>
 </form>
 
 

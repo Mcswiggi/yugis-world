@@ -56,11 +56,8 @@
 }
 
 body{
-  /* background-image: url("../images/1300534.jpg"); */
   background-position: center;
   height: 90vh;
-  /* opacity: 50%; */
-  /* background-size: cover; */
   top: 500px;
   left: 0;
   background-repeat: no-repeat;

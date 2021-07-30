@@ -1,13 +1,23 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
+<style>
+  h2{
+    color: white;
+    text-align: center;
+  }
+</style>
+<h2>  Deck Name: <%= deck.name %> Deck</h2> 
+
+<div class="col">
+  <div class="card bg-dark shadow-sm mb-3">
+   > 
 <% if (deck.cards.length >= 1) { %>
 
 <% deck.cards.forEach(card => { %>
-  <h2><%= card.name %></h2>
   <% if (card) { %>
 
-    <main class="bg-light">
+    <main>
       <div class="container py-5 px-3">
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g5 px-sm-5 px-4">
             <div class="col">
@@ -44,14 +54,14 @@
                   action="/decks/<%=card._id%>?_method=DELETE" 
                   method="POST"
                 >
-                <input type="text" hidden name="deckId" value="<%= deck._id %>">
-                <button class="btn btn-danger">
-                  Remove card from deck
-                </button>
+                    <input type="text" hidden name="deckId" value="<%= deck._id %>">
+                    <button class="btn btn-danger">
+                      Remove card from deck
+                    </button>
               
                 <% } %>
 
-              </form>
+                  </form>
               </div>
             </div>
           </div>
