@@ -5,6 +5,9 @@
   .card{
     margin: 20px;
   }
+  h2{
+    color: white
+  }
 </style>
 
 <div class="container py-5 px-3">
@@ -32,8 +35,13 @@
           <% } %>  
 
           <div class="card-body bg-dark">
+
+          <% if (user) { %> 
           <a href="/decks/<%= deck._id %> "><h2><%= deck.owner.name %>'s - <%=  deck.name  %> Deck</h2></a>
-         </div>
+          <% } else {%>  
+            <h2><%= deck.owner.name %>'s - <%=  deck.name  %> Deck</h2>
+            <% } %> 
+        </div>
         </div>
     <% }) %> 
   </div>

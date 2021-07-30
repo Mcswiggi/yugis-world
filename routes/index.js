@@ -6,7 +6,7 @@ export {
 
 const router = Router()
 
-router.get('/', isLoggedIn, function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('index', { title: "Yugi's World" })
 })
 
