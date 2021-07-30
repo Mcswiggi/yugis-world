@@ -84,3 +84,10 @@ body{
   justify-content: center;
   
 }
+
+#formInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}

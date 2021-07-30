@@ -44,7 +44,7 @@
                   <p class="card-text fs-5 text-light"> <%= results.data[0].def ? "def:" : ""  %> <%= results.data[0].def %></p>
                   <p class="card-text fs-5 text-light">description: <%= results.data[0].desc %></p>
                   <p class="card-text fs-5 text-light"><%= results.data[0].attribute ? "attribute:" : ""  %><%= results.data[0].attribute %></p>                
-
+            <% if (user) { %> 
                   <form action="/cards/<%= results.data[0].id %>/addToDeck  " method="POST">
                     <select name="addedToDeck">
                       <% profile.decks.forEach(deck => { %>
@@ -64,6 +64,8 @@
                                        
                     <button>Submit</button>
                   </form>
+                <% } %> 
+                
                 </div>
               </div>
             </div>

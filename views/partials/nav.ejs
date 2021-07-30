@@ -48,10 +48,12 @@
 
           <% } %> 
 
-
+      <li>
+        <% if (user) {%> 
         <form action="/cards/search" method="POST" class="d-flex align-items-center me-3">
           <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         </form>
+        <% } %> 
       </li>
   
 

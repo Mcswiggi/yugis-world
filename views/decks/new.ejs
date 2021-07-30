@@ -1,9 +1,21 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
+<style>
+h3{
+    color: white;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.createButton{
+    margin-left: 25px;
+}
+</style>
+
 <h1 id="home-title">Create Your Deck:</h1>
-<form action="/decks" method="POST">
-    Deck name:
+<form action="/decks" method="POST" id="formInput">
+    <h3>Deck name:</h3>
     <input type="text" name="name"> 
     <br>
     <div class="createButton">
