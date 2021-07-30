@@ -6,17 +6,30 @@
     color: white;
     text-align: center;
   }
+  .card-img, .card-img-bottom, .card-img-top{
+    width:350px 
+  }
+  .card-body{
+    width: 350px;
+  }
+
+  .card{
+    display: inline-block;
+  }
+  
+  
 </style>
 <h2>  Deck Name: <%= deck.name %> Deck</h2> 
 
-    <main>
-      <div class="container py-5 px-3">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g5 px-sm-5 px-4">
-                <% if (deck.cards.length >= 1) { %>
-                
-                <% deck.cards.forEach(card => { %>
-                  <% if (card) { %>
-                <% if (card.imageUrl) { %>
+<% if (deck.cards.length >= 1) { %>
+  
+  <div class="row row-cols-3 row-cols-md-3 row-cols-xl-3 g5 px-sm-5 px-4">
+  <% deck.cards.forEach(card => { %>
+    <% if (card) { %>
+      
+                    <div class="col">
+                      <div class="card bg-dark shadow-sm mt-3">
+                    <% if (card.imageUrl) { %>
                   <img
                     class="card-img-top"
                     src="<%= card.imageUrl %>"
@@ -55,19 +68,24 @@
                     </button>
                   </form>
                 <% } %>
-
-                <% } %> 
-              </main>
-              
-              <% }) %> 
+              </div>
+            </div>
+            <!-- </div> -->
+            <% } %> 
+            
+            
+            
+            
+            
+            <% }) %> 
+          </div>
               
               <% } else { %>
                 
                 <h2>Search and add some cards!</h2>
                 <% } %> 
                 
-          </div>
-    </div>
+              
   
         
         <%- include('../partials/footer') %>

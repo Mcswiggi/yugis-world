@@ -57,7 +57,7 @@
 
 body{
   background-position: center;
-  height: 90vh;
+  /* height: 90vh; */
   top: 500px;
   left: 0;
   background-repeat: no-repeat;
