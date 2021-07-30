@@ -86,14 +86,8 @@ opacity: 50%;
 }
 
 
-
 #postButtons{
   display: flex;
   justify-content: center;
-  
-}
-
-#formInput{
-  /* align-items: center; */
   
 }

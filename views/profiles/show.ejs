@@ -1,5 +1,11 @@
 <%- include('../partials/html-head') %>
 
+<style>
+  h2{
+    color: white;
+  }
+</style>
+
 <% if (user.profile._id.toString() === profile._id.toString()) { %>
   <style>
     #profile-dropdown {
@@ -10,7 +16,7 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <section class="bg-dark text-secondary px-4 py-5 text-center">
+  <section class="text-secondary px-4 py-5 text-center">
     <% if (profile.avatar) { %>
       <img
         class="image-rounded" 
@@ -24,23 +30,7 @@
       >
     <% } %> 
     <h1 class="display-5 fw-bold text-white pt-2"><%= profile.name %></h1>
-    <div class="container py-4">
-      <table class="table table-dark table-striped align-middle">
-        <tbody>
-          <% if (user.profile._id.toString() === profile._id.toString()) { %>
-            <tr>
-              <td>Google Email:</td>
-              <td><%= user.email %></td>
-            </tr>
-          <% } %>
-          <tr>
-            <td>Name:</td>
-            <td><%= profile.name %></td>
-          </tr>
-         
-        </tbody>
-      </table>
-    </div>
+    
    
     <%# This is where we'll add a button to 'friend/unfriend' a user %> 
     <%# if this is not my profile page          &&  the user being viewed is not in my friends list %> 
@@ -56,7 +46,7 @@
       </a>
     <% } %>
   </section>
-  <section class="bg-light pt-3">
+  <section>
     <div class="container">
       <h2 class="mb-3"><%= profile.name %>'s friends</h2>
       <div
