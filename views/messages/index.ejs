@@ -32,17 +32,13 @@
         <footer class="blockquote-footer"><%= message.author.name %></footer>
                     <div id="postButtons">
                     <a href="/messages/<%= message._id %>" class="btn btn-primary">Reply to Post</a>
-                    
                     <% if (user.profile._id.toString() === message.author._id.toString()) { %>
                     <a 
                       class="btn btn-warning"
                       role="button" 
                       href="/messages/<%= message._id %>/edit"
-                          >
-                            Edit Message
-                          </a>
+                          > Edit Message</a>
                     <% } %> 
-                
                   <form 
                     class="text-center" 
                     action="/messages/<%= message._id %>/?_method=DELETE" 
