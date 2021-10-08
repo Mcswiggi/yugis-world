@@ -35,8 +35,6 @@
   width: 1px; 
 }
 
-
-
 #formLabel{
   font-size: 25px;
   color: rgb(177, 210, 199);
@@ -48,11 +46,16 @@
 
 #home-title{
   color: rgb(177, 210, 199);
-  opacity: 100%;
   font-family: 'Roboto', sans-serif;
   font-size: 700%;
   text-align: center;
+}
 
+#home-description{
+  color: rgb(177, 210, 199);
+  text-align: center;
+  margin: 5% 18% 5% 18% ;
+  font-size: 200%;
 }
 
 body{
